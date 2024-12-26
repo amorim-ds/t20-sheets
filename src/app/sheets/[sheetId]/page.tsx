@@ -125,7 +125,7 @@ export default function SheetsPage() {
 						handleInput={handleInput}
 						setSheet={setSheet}
 						type="race"
-						title="Habilidades de Raça e Origem"
+						title="Habilidades de Raça"
 					/>
 					<Abilities
 						sheet={sheet}
@@ -133,6 +133,13 @@ export default function SheetsPage() {
 						setSheet={setSheet}
 						type="class"
 						title="Habilidades de Classe"
+					/>
+					<Abilities
+						sheet={sheet}
+						handleInput={handleInput}
+						setSheet={setSheet}
+						type="origin"
+						title="Habilidades de Origem"
 					/>
 					<Abilities
 						sheet={sheet}

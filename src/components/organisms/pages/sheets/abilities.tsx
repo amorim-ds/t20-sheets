@@ -7,7 +7,7 @@ import { SheetFormComponentProps } from '@/utils/types';
 import classNames from 'classnames';
 
 interface AbilitiesProps extends SheetFormComponentProps {
-	type: 'race' | 'class' | 'general';
+	type: 'race' | 'class' | 'general' | 'origin';
 	title: string;
 }
 

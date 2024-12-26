@@ -153,6 +153,7 @@ export type SheetForm = {
 	abilities: {
 		race: AbilitiesDetails[];
 		class: AbilitiesDetails[];
+		origin: AbilitiesDetails[];
 		general: AbilitiesDetails[];
 		spell: SpellDetails[];
 	};

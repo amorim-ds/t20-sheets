@@ -342,6 +342,7 @@ export const sheetFormInitialState: SheetForm = {
 	abilities: {
 		race: [],
 		class: [],
+		origin: [],
 		general: [],
 		spell: [],
 	},

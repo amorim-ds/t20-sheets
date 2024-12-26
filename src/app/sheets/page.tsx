@@ -125,8 +125,15 @@ export default function SheetsPage() {
 						sheet={sheet}
 						handleInput={handleInput}
 						setSheet={setSheet}
+						type="origin"
+						title="Habilidades de Origem"
+					/>
+					<Abilities
+						sheet={sheet}
+						handleInput={handleInput}
+						setSheet={setSheet}
 						type="general"
-						title="Habilidades de Origem e Poderes Gerais"
+						title="Poderes Gerais"
 					/>
 					<Spells
 						sheet={sheet}
