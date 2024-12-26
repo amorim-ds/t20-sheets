@@ -31,8 +31,6 @@ export default function SheetsPage() {
 
 	const { sheetId } = params; // Acessa o parâmetro 'sheetId' da URL
 
-	if (!sheetId) return <>Carregando...</>;
-
 	useEffect(() => {
 		if (!sheetId) return;
 		const loadData = async () => {
@@ -44,19 +42,17 @@ export default function SheetsPage() {
 	}, [sheetId]);
 
 	useEffect(() => {
+		if (!sheetId) return;
 		const timeoutId = setTimeout(async () => {
-			const response = await saveJsonFile(
+			await saveJsonFile(
 				sheet,
 				'PATCH',
 				sheetId as string
 			);
 		}, DEBOUNCE_TIME);
 
-		// Limpa o timeout anterior se o `sheet` mudar novamente antes do tempo
-		return () => {
-			clearTimeout(timeoutId);
-		};
-	}, [sheet, sheetId]); // A cada mudança de `sheet` ou `sheetId`
+		return () => clearTimeout(timeoutId);
+	}, [sheet, sheetId]);
 
 	const handleInput = (
 		e:
