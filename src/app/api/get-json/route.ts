@@ -15,9 +15,8 @@ export async function GET(req: NextRequest) {
 
 	// Caminho completo do arquivo baseado no ID
 	const filePath = path.join(
-		process.cwd(),
+		'tmp',
 		'data',
-		'saved_files',
 		`${id}.json`
 	);
 

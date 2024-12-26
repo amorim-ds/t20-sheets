@@ -21,9 +21,8 @@ export async function POST(req: NextRequest) {
 
 		// Caminho para salvar o arquivo
 		const filePath = path.join(
-			process.cwd(),
+			'tmp',
 			'data',
-			'saved_files',
 			fileName
 		);
 
