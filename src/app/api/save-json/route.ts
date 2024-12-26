@@ -40,7 +40,7 @@ export async function POST(req: NextRequest) {
 	} catch (error) {
 		console.log('Erro ao salvar o arquivo:', error);
 		return NextResponse.json(
-			{ message: 'Erro ao salvar o arquivo.' },
+			{ message: 'Erro ao salvar o arquivo.', error },
 			{ status: 500 }
 		);
 	}
