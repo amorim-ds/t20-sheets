@@ -1,6 +1,4 @@
 'use client'; // Certifique-se de que o código é executado no cliente
-
-import { useState } from 'react';
 import Button from '../atoms/button';
 
 interface CopyUrlModalProps {

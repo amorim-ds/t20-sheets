@@ -1,6 +1,5 @@
 import Input from '@/components/molecules/input';
 import { H1 } from '@/components/atoms/text/h1';
-import Grid from '@/components/atoms/grid';
 import { SheetFormComponentProps } from '@/utils/types';
 
 const CharacterDetails = ({ sheet, handleInput }: SheetFormComponentProps) => (

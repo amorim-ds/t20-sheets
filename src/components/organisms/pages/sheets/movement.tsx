@@ -1,5 +1,4 @@
 import { Label } from '@/components/atoms/text/label';
-import Card from '@/components/molecules/card';
 import Input from '@/components/molecules/input';
 import { SheetFormComponentProps } from '@/utils/types';
 

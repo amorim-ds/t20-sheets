@@ -1,7 +1,6 @@
 import { Label } from '@/components/atoms/text/label';
 import Select from '@/components/molecules/select';
 import { Span } from '@/components/atoms/text/span';
-import Card from '@/components/molecules/card';
 import { SheetFormComponentProps } from '@/utils/types';
 
 export const getModifiers = (size: string) => {

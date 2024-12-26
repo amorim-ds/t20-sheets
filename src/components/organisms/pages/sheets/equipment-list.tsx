@@ -1,8 +1,5 @@
-import { H4 } from '@/components/atoms/text/h4';
 import { Span } from '@/components/atoms/text/span';
 import Input from '@/components/molecules/input';
-import Plus from '@/components/atoms/icons/plus';
-import Minus from '@/components/atoms/icons/minus';
 import classNames from 'classnames';
 import { SheetFormComponentProps } from '@/utils/types';
 import Card from '@/components/molecules/card';
