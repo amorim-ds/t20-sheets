@@ -109,7 +109,9 @@ const EquipmentList = ({
 							onChange={handleInput}
 						/>
 					</Span>
-					<Span className="text-sm leading-none self-center">Carga Máxima</Span>
+					<Span className="text-sm leading-none self-center">
+						Carga Máxima
+					</Span>
 					<Span className="text-lg font-semibold">
 						{totalWeight() * 2}
 					</Span>

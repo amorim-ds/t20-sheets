@@ -46,14 +46,10 @@ export default function SheetsPage() {
 	useEffect(() => {
 		if (!sheetId) return;
 		const timeoutId = setTimeout(async () => {
-			await saveJsonFile(
-				sheet,
-				'PATCH',
-				sheetId as string
-			);
+			await saveJsonFile(sheet, 'PATCH', sheetId as string);
 			setIsLoaderVisible(false);
 		}, DEBOUNCE_TIME);
-		
+
 		setIsLoaderVisible(true);
 
 		return () => clearTimeout(timeoutId);
@@ -88,68 +84,71 @@ export default function SheetsPage() {
 	return (
 		<>
 			<form
-			className="w-full overflow-x-hidden px-5 py-5 md:px-20 print:px-1 space-y-3"
-			autoComplete="off"
-			noValidate
-		>
-			<CharDetails sheet={sheet} handleInput={handleInput} />
-			<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-3 gap-y-3 print:gap-y-2">
-				<Attributes sheet={sheet} handleInput={handleInput} />
-				<Stats sheet={sheet} handleInput={handleInput} />
-				<Defense sheet={sheet} handleInput={handleInput} />
-				<ArmorList sheet={sheet} handleInput={handleInput} />
-				<Proficiency sheet={sheet} handleInput={handleInput} />
-				<Card className="grid gap-1">
-					<ExperiencePoints sheet={sheet} handleInput={handleInput} />
-					<Movement sheet={sheet} handleInput={handleInput} />
-					<Size sheet={sheet} handleInput={handleInput} />
-				</Card>
-				<Skills
-					sheet={sheet}
-					setSheet={setSheet}
-					handleInput={handleInput}
-				/>
-				<AttackList
-					sheet={sheet}
-					handleInput={handleInput}
-					setSheet={setSheet}
-				/>
-				<EquipmentList
-					sheet={sheet}
-					handleInput={handleInput}
-					setSheet={setSheet}
-				/>
-				<CharDescription sheet={sheet} handleInput={handleInput} />
-				<Notes sheet={sheet} handleInput={handleInput} />
-				<Abilities
-					sheet={sheet}
-					handleInput={handleInput}
-					setSheet={setSheet}
-					type="race"
-					title="Habilidades de Raça e Origem"
-				/>
-				<Abilities
-					sheet={sheet}
-					handleInput={handleInput}
-					setSheet={setSheet}
-					type="class"
-					title="Habilidades de Classe"
-				/>
-				<Abilities
-					sheet={sheet}
-					handleInput={handleInput}
-					setSheet={setSheet}
-					type="general"
-					title="Poderes Gerais"
-				/>
-				<Spells
-					sheet={sheet}
-					handleInput={handleInput}
-					setSheet={setSheet}
-				/>
-			</div>
-		</form>
-		<Loader isVisible={isLoaderVisible} />
+				className="w-full overflow-x-hidden px-5 py-5 md:px-20 print:px-1 space-y-3"
+				autoComplete="off"
+				noValidate
+			>
+				<CharDetails sheet={sheet} handleInput={handleInput} />
+				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-3 gap-y-3 print:gap-y-2">
+					<Attributes sheet={sheet} handleInput={handleInput} />
+					<Stats sheet={sheet} handleInput={handleInput} />
+					<Defense sheet={sheet} handleInput={handleInput} />
+					<ArmorList sheet={sheet} handleInput={handleInput} />
+					<Proficiency sheet={sheet} handleInput={handleInput} />
+					<Card className="grid gap-1">
+						<ExperiencePoints
+							sheet={sheet}
+							handleInput={handleInput}
+						/>
+						<Movement sheet={sheet} handleInput={handleInput} />
+						<Size sheet={sheet} handleInput={handleInput} />
+					</Card>
+					<Skills
+						sheet={sheet}
+						setSheet={setSheet}
+						handleInput={handleInput}
+					/>
+					<AttackList
+						sheet={sheet}
+						handleInput={handleInput}
+						setSheet={setSheet}
+					/>
+					<EquipmentList
+						sheet={sheet}
+						handleInput={handleInput}
+						setSheet={setSheet}
+					/>
+					<CharDescription sheet={sheet} handleInput={handleInput} />
+					<Notes sheet={sheet} handleInput={handleInput} />
+					<Abilities
+						sheet={sheet}
+						handleInput={handleInput}
+						setSheet={setSheet}
+						type="race"
+						title="Habilidades de Raça e Origem"
+					/>
+					<Abilities
+						sheet={sheet}
+						handleInput={handleInput}
+						setSheet={setSheet}
+						type="class"
+						title="Habilidades de Classe"
+					/>
+					<Abilities
+						sheet={sheet}
+						handleInput={handleInput}
+						setSheet={setSheet}
+						type="general"
+						title="Poderes Gerais"
+					/>
+					<Spells
+						sheet={sheet}
+						handleInput={handleInput}
+						setSheet={setSheet}
+					/>
+				</div>
+			</form>
+			<Loader isVisible={isLoaderVisible} />
 		</>
 	);
 }

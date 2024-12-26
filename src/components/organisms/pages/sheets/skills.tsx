@@ -5,7 +5,11 @@ import classNames from 'classnames';
 import Armor from '@/components/atoms/icons/armor';
 import Sword from '@/components/atoms/icons/sword';
 import { getModifiers } from './size';
-import { GenericSkillDetails, RoleSkillDetails, SheetFormComponentProps } from '@/utils/types';
+import {
+	GenericSkillDetails,
+	RoleSkillDetails,
+	SheetFormComponentProps,
+} from '@/utils/types';
 import { attributes } from '@/utils/constants';
 import { H5 } from '@/components/atoms/text/h5';
 import Card from '@/components/molecules/card';
@@ -110,7 +114,13 @@ const Skills = ({ sheet, setSheet, handleInput }: SheetFormComponentProps) => {
 					{(key == 'craft_1' || key == 'craft_2') && (
 						<Span>
 							(
-								<Input className='bg-gray-light w-12 sm:w-16 text-center text-xs' name={`skills.${key}.title`} value={(skill as RoleSkillDetails).title} onChange={handleInput} title='Nome do Ofício' />
+							<Input
+								className="bg-gray-light w-12 sm:w-16 text-center text-xs"
+								name={`skills.${key}.title`}
+								value={(skill as RoleSkillDetails).title}
+								onChange={handleInput}
+								title="Nome do Ofício"
+							/>
 							)
 						</Span>
 					)}
