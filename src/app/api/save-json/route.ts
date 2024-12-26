@@ -21,7 +21,7 @@ export async function POST(req: NextRequest) {
 
 		// Caminho para salvar o arquivo
 		const filePath = path.join(
-			'tmp',
+			'/tmp',
 			'data',
 			fileName
 		);
