@@ -54,7 +54,8 @@ const Abilities = ({
 						Descrição
 					</Label>
 					<textarea
-						className="min-h-[5.5rem] w-full flex-grow text-sm px-2 py-1 rounded-md bg-gray-light outline-primary resize-none print:border-none print:px-0"
+						className="w-full flex-grow text-sm px-2 py-1 rounded-md bg-gray-light outline-primary resize-none print:border-none print:px-0"
+						rows={5}
 						name={`abilities.${type}.${index}.description`}
 						title={`Descrição de Habilidade ${index}`}
 						value={item.description}

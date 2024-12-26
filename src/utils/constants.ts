@@ -29,6 +29,7 @@ export const sizes: Size[] = [
 export const executions: Execution[] = [
 	'Completa',
 	'Livre',
+	'Movimento',
 	'Padrão',
 	'Reação',
 ];
@@ -36,14 +37,14 @@ export const executions: Execution[] = [
 export const ranges: Range[] = ['Pessoal', 'Toque', 'Curto', 'Médio', 'Longo'];
 
 export const spellSchools: SpellSchools[] = [
-	'Abjur',
-	'Adiv',
-	'Conv',
-	'Encan',
-	'Evoc',
-	'Ilu',
-	'Necro',
-	'Trans',
+	'Abjuração',
+	'Adivinhação',
+	'Convocação',
+	'Encantamento',
+	'Evocação',
+	'Ilusão',
+	'Necromancia',
+	'Transmutação',
 ];
 
 export const skillNames: SkillName[] = [

@@ -20,7 +20,7 @@ const Spells = ({ sheet, handleInput, setSheet }: SheetFormComponentProps) => {
 			execution: 'Padrão',
 			range: 'Pessoal',
 			resistance: '',
-			school: 'Abjur',
+			school: 'Abjuração',
 			target: '',
 		});
 		setSheet?.(newState);
@@ -66,13 +66,14 @@ const Spells = ({ sheet, handleInput, setSheet }: SheetFormComponentProps) => {
 	);
 
 	const renderDetails = (listIndex: number) => (
-		<div className="grid grid-cols-[auto_auto_auto] lg:grid-cols-[auto_auto_auto_auto_auto_auto] gap-3">
+		<div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-7 gap-3">
 			<div className="flex flex-col gap-1 group items-center">
 				<Label className="all-small-caps group-focus-within:text-primary">
 					Escola
 				</Label>
 				<Select
-					className="bg-gray-light w-20"
+					className="bg-gray-light w-full"
+					containerClassName="w-full"
 					placeholderClassName="justify-self-center w-full"
 					iconClassName="hidden"
 					name={`abilities.spell.${listIndex}.school`}
@@ -86,7 +87,8 @@ const Spells = ({ sheet, handleInput, setSheet }: SheetFormComponentProps) => {
 					Execução
 				</Label>
 				<Select
-					className="bg-gray-light w-[5.5rem]"
+					className="bg-gray-light w-full"
+					containerClassName="w-full"
 					placeholderClassName="justify-self-center w-full"
 					iconClassName="hidden"
 					name={`abilities.spell.${listIndex}.execution`}
@@ -100,7 +102,8 @@ const Spells = ({ sheet, handleInput, setSheet }: SheetFormComponentProps) => {
 					Alcance
 				</Label>
 				<Select
-					className="bg-gray-light w-20"
+					className="bg-gray-light w-full"
+					containerClassName="w-full"
 					placeholderClassName="justify-self-center w-full"
 					iconClassName="hidden"
 					name={`abilities.spell.${listIndex}.range`}
@@ -111,12 +114,12 @@ const Spells = ({ sheet, handleInput, setSheet }: SheetFormComponentProps) => {
 			</div>
 			<div className="flex flex-col gap-1 group items-center">
 				<Label className="all-small-caps group-focus-within:text-primary">
-					Área
+					Alvo
 				</Label>
 				<Input
-					className="bg-gray-light w-20 sm:w-40 text-center"
-					name={`abilities.spell.${listIndex}.area`}
-					value={sheet.abilities.spell[listIndex].area}
+					className="bg-gray-light w-full text-center"
+					name={`abilities.spell.${listIndex}.target`}
+					value={sheet.abilities.spell[listIndex].target}
 					onChange={handleInput}
 				/>
 			</div>
@@ -125,9 +128,20 @@ const Spells = ({ sheet, handleInput, setSheet }: SheetFormComponentProps) => {
 					Duração
 				</Label>
 				<Input
-					className="bg-gray-light w-20 sm:w-40 text-center"
+					className="bg-gray-light w-full text-center"
 					name={`abilities.spell.${listIndex}.duration`}
 					value={sheet.abilities.spell[listIndex].duration}
+					onChange={handleInput}
+				/>
+			</div>
+			<div className="flex flex-col gap-1 group items-center">
+				<Label className="all-small-caps group-focus-within:text-primary">
+					Área
+				</Label>
+				<Input
+					className="bg-gray-light w-full text-center"
+					name={`abilities.spell.${listIndex}.area`}
+					value={sheet.abilities.spell[listIndex].area}
 					onChange={handleInput}
 				/>
 			</div>
@@ -136,7 +150,7 @@ const Spells = ({ sheet, handleInput, setSheet }: SheetFormComponentProps) => {
 					Resistência
 				</Label>
 				<Input
-					className="bg-gray-light text-center w-40 sm:w-60"
+					className="bg-gray-light text-center w-full"
 					name={`abilities.spell.${listIndex}.resistance`}
 					value={sheet.abilities.spell[listIndex].resistance}
 					onChange={handleInput}
@@ -166,7 +180,8 @@ const Spells = ({ sheet, handleInput, setSheet }: SheetFormComponentProps) => {
 						Efeito
 					</Label>
 					<textarea
-						className="min-h-[5.5rem] w-full flex-grow text-sm px-2 py-1 rounded-md bg-gray-light outline-primary resize-none print:border-none print:px-0"
+						className="w-full flex-grow text-sm px-2 py-1 rounded-md bg-gray-light outline-primary resize-none print:border-none print:px-0"
+						rows={10}
 						name={`abilities.spell.${index}.description`}
 						title={`Descrição de Habilidade ${index}`}
 						value={item.description}

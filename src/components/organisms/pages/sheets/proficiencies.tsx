@@ -8,7 +8,8 @@ const Proficiencies = ({ sheet, handleInput }: SheetFormComponentProps) => (
 			Proficiências
 		</H5>
 		<textarea
-			className="w-full flex-grow text-sm text-center text-inherit px-2 py-1 rounded-md bg-gray-light outline-primary resize-none print:border-none print:px-0"
+			className="w-full text-sm text-center text-inherit px-2 py-1 rounded-md bg-gray-light outline-primary resize-none print:border-none print:px-0"
+			rows={3}
 			name="proficiencies"
 			title="Proficiências"
 			value={sheet.proficiencies}

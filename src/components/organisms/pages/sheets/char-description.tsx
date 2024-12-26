@@ -8,7 +8,8 @@ const CharDescription = ({ sheet, handleInput }: SheetFormComponentProps) => (
 			Descrição do Personagem
 		</H5>
 		<textarea
-			className="w-full min-h-40 flex-grow text-sm text-center text-inherit px-2 py-1 rounded-md bg-gray-light outline-primary resize-none print:border-none print:px-0"
+			className="w-full text-sm text-center text-inherit px-2 py-1 rounded-md bg-gray-light outline-primary resize-none print:border-none print:px-0"
+			rows={10}
 			name="description"
 			title="Descrição do Personagem"
 			value={sheet.description}

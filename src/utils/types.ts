@@ -3,16 +3,21 @@ import { EditableChangeEvent } from '@/components/molecules/select';
 export type Attribute = 'DES' | 'FOR' | 'CON' | 'INT' | 'SAB' | 'CAR';
 
 export type SpellSchools =
-	| 'Abjur'
-	| 'Adiv'
-	| 'Conv'
-	| 'Encan'
-	| 'Evoc'
-	| 'Ilu'
-	| 'Necro'
-	| 'Trans';
+	| 'Abjuração'
+	| 'Adivinhação'
+	| 'Convocação'
+	| 'Encantamento'
+	| 'Evocação'
+	| 'Ilusão'
+	| 'Necromancia'
+	| 'Transmutação';
 
-export type Execution = 'Completa' | 'Livre' | 'Padrão' | 'Reação';
+export type Execution =
+	| 'Completa'
+	| 'Livre'
+	| 'Movimento'
+	| 'Padrão'
+	| 'Reação';
 
 export type Range = 'Pessoal' | 'Toque' | 'Curto' | 'Médio' | 'Longo';
 
