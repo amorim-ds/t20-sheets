@@ -1,4 +1,6 @@
+import { plugin } from 'postcss';
 import type { Config } from 'tailwindcss';
+import { PluginAPI } from 'tailwindcss/types/config';
 
 export default {
 	content: [
@@ -9,8 +11,23 @@ export default {
 	theme: {
 		extend: {
 			colors: {
-				background: 'var(--background)',
-				foreground: 'var(--foreground)',
+				primary: 'var(--color-primary)',
+				'primary-dark': 'var(--color-primary-dark)',
+				secondary: 'var(--color-secondary)',
+				green: 'var(--color-green)',
+				gray: 'var(--color-gray)',
+				'gray-light': '#f1f5f9',
+			},
+			fontFamily: {
+				'dante-mt-std': ['Dante MT Std', 'sans-serif'],
+				raizen: ['Raizen', 'sans-serif'],
+				'spiral-initials': ['Spiral Initials', 'sans-serif'],
+				tormenta20: ['Tormenta20', 'sans-serif'],
+			},
+			gridTemplateRows: {
+				'auto-3': 'repeat(3, minmax(0, auto))',
+				'auto-10': 'repeat(10, minmax(0, auto))',
+				'auto-15': 'repeat(15, minmax(0, auto))',
 			},
 		},
 	},

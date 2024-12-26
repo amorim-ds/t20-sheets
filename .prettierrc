@@ -3,5 +3,7 @@
 	"tabWidth": 4,
 	"useTabs": true,
 	"semi": true,
-	"singleQuote": true
+	"singleQuote": true,
+	"printWidth": 80,
+	"proseWrap": "always"
 }

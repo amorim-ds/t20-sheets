@@ -1,25 +1,75 @@
+@import url('./_colors.css');
 @import url('./_fonts.css');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-	--background: #ffffff;
-	--foreground: #171717;
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
 
-/* @media (prefers-color-scheme: dark) {
-	:root {
-		--background: #0a0a0a;
-		--foreground: #ededed;
-	}
-} */
-
 body {
-	color: var(--foreground);
-	background: var(--background);
-	font-family:
-		Dante MT Std,
-		sans-serif;
+	width: 100%;
+	min-height: 100vh;
+	margin: 0;
+	font-family: 'Dante MT Std', sans-serif;
+	position: relative;
+	overflow-x: hidden;
+	overflow-y: visible;
+}
+
+body::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 50%;
+	height: 100%;
+	background-image: url('/background1.png');
+	background-size: cover;
+	background-position: center;
+	z-index: -1;
+}
+
+body::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 50%;
+	height: 100%;
+	background-image: url('/background2.png');
+	background-size: cover;
+	background-position: center;
+	z-index: -1;
+}
+
+@layer utilities {
+	.all-small-caps {
+		font-variant: all-small-caps;
+	}
+
+	.aspect-a4 {
+		aspect-ratio: 210 / 297; /* Proporção de uma folha A4 */
+	}
+
+	.no-number-spinner::-webkit-inner-spin-button,
+	.no-number-spinner::-webkit-outer-spin-button {
+		appearance: none;
+		margin: 0;
+	}
+
+	.no-number-spinner {
+		appearance: textfield;
+	}
+
+	.shield-shape {
+		border: 5px solid black;
+		border-radius: 50% 50% 50% 50% / 12% 12% 88% 88%;
+	}
 }
