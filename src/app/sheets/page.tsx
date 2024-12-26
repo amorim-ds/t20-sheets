@@ -19,7 +19,7 @@ import Skills from '@/components/organisms/pages/sheets/skills';
 import Spells from '@/components/organisms/pages/sheets/spells';
 import Stats from '@/components/organisms/pages/sheets/stats';
 import { sheetFormInitialState } from '@/utils/constants';
-import saveJsonFile from '@/utils/save-json-file';
+import saveJsonToBucket from '@/utils/save-json-file';
 import { SheetForm } from '@/utils/types';
 import { useState } from 'react';
 
@@ -56,8 +56,12 @@ export default function SheetsPage() {
 
 	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		const data = await saveJsonFile(sheet);
-		setId(data.fileName);
+		const response = await saveJsonToBucket(sheet);
+		if (!response) {
+			alert('erro!');
+			return;
+		}
+		setId(response.fileName);
 		setIsVisible(true);
 	};
 

@@ -18,15 +18,17 @@ import Skills from '@/components/organisms/pages/sheets/skills';
 import Spells from '@/components/organisms/pages/sheets/spells';
 import Stats from '@/components/organisms/pages/sheets/stats';
 import { sheetFormInitialState } from '@/utils/constants';
-import fetchDataById from '@/utils/get-json-file';
-import saveJsonFile from '@/utils/save-json-file';
+import fetchJsonFromDatabase from '@/utils/get-json-file';
 import { SheetForm } from '@/utils/types';
+import updateJsonToBucket from '@/utils/update-json-file';
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import _ from 'lodash';
 
-const DEBOUNCE_TIME = 1000;
+const DEBOUNCE_TIME = 3000;
 
 export default function SheetsPage() {
+	const [initialSheet, setInitialSheet] = useState<SheetForm>();
 	const [sheet, setSheet] = useState<SheetForm>(sheetFormInitialState);
 	const params = useParams(); // Obtém os parâmetros da URL
 	const [isLoaderVisible, setIsLoaderVisible] = useState<boolean>(false);
@@ -36,17 +38,23 @@ export default function SheetsPage() {
 	useEffect(() => {
 		if (!sheetId) return;
 		const loadData = async () => {
-			const data = await fetchDataById(sheetId as string);
-			if (!data) return;
-			setSheet(data);
+			const data = await fetchJsonFromDatabase(sheetId as string);
+			if (!data) {
+				alert('Não há ficha para ser carregada!');
+				return;
+			}
+			setInitialSheet(JSON.parse(data) as SheetForm);
+			setSheet(JSON.parse(data) as SheetForm);
 		};
 		loadData();
 	}, [sheetId]);
 
 	useEffect(() => {
-		if (!sheetId) return;
+		if (!sheetId || !sheet || !initialSheet) return;
+		if (_.isEqual(sheet, initialSheet)) return;
 		const timeoutId = setTimeout(async () => {
-			await saveJsonFile(sheet, 'PATCH', sheetId as string);
+			const data = await updateJsonToBucket(sheetId as string, sheet);
+			if (!data.response) setInitialSheet(_.cloneDeep(sheet));
 			setIsLoaderVisible(false);
 		}, DEBOUNCE_TIME);
 
