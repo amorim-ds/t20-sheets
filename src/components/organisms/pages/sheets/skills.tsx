@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import Armor from '@/components/atoms/icons/armor';
 import Sword from '@/components/atoms/icons/sword';
 import { getModifiers } from './size';
-import { GenericSkillDetails, SheetFormComponentProps } from '@/utils/types';
+import { GenericSkillDetails, RoleSkillDetails, SheetFormComponentProps } from '@/utils/types';
 import { attributes } from '@/utils/constants';
 import { H5 } from '@/components/atoms/text/h5';
 import Card from '@/components/molecules/card';
@@ -39,7 +39,7 @@ const Skills = ({ sheet, setSheet, handleInput }: SheetFormComponentProps) => {
 			value -= Math.abs(Number(sheet.defense.armor.penalty));
 			value -= Math.abs(Number(sheet.defense.shield.penalty));
 		}
-		if (key == 'Furtividade') value += Number(getModifiers(sheet.size)[0]);
+		if (key == 'stealth') value += Number(getModifiers(sheet.size)[0]);
 		return value;
 	};
 
@@ -87,7 +87,7 @@ const Skills = ({ sheet, setSheet, handleInput }: SheetFormComponentProps) => {
 						role="button"
 						onClick={() => toggleTrained(key)}
 					>
-						{key}
+						{skill.name}
 					</Span>
 					{skill.trained_only && (
 						<div title="Apenas Treinado">
@@ -107,6 +107,13 @@ const Skills = ({ sheet, setSheet, handleInput }: SheetFormComponentProps) => {
 							/>
 						</div>
 					)}
+					{(key == 'craft_1' || key == 'craft_2') && (
+						<Span>
+							(
+								<Input className='bg-gray-light w-12 sm:w-16 text-center text-xs' name={`skills.${key}.title`} value={(skill as RoleSkillDetails).title} onChange={handleInput} title='Nome do Ofício' />
+							)
+						</Span>
+					)}
 				</div>
 				<Span className="justify-self-center font-bold">
 					{calcTotal(key, skill)}
@@ -124,7 +131,7 @@ const Skills = ({ sheet, setSheet, handleInput }: SheetFormComponentProps) => {
 				<Input
 					className="w-12 text-xs border-none bg-gray-light justify-self-center text-center"
 					name={`skills.${key}.bonus_others`}
-					title={`${key} (Outros)`}
+					title={`${skill.name} (Outros)`}
 					value={skill.bonus_others}
 					type="number"
 					onChange={handleInput}

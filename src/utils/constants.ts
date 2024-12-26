@@ -47,35 +47,35 @@ export const spellSchools: SpellSchools[] = [
 ];
 
 export const skillNames: SkillName[] = [
-	'Acrobacia',
-	'Adestramento',
-	'Atletismo',
-	'Atuação',
-	'Cavalgar',
-	'Conhecimento',
-	'Cura',
-	'Diplomacia',
-	'Enganação',
-	'Fortitude',
-	'Furtividade',
-	'Guerra',
-	'Iniciativa',
-	'Intimidação',
-	'Intuição',
-	'Investigação',
-	'Jogatina',
-	'Ladinagem',
-	'Luta',
-	'Misticismo',
-	'Nobreza',
-	'Ofício',
-	'Percepção',
-	'Pilotagem',
-	'Pontaria',
-	'Reflexos',
-	'Religião',
-	'Sobrevivência',
-	'Vontade',
+	'acrobatics',
+	'animal_handling',
+	'athletics',
+	'performance',
+	'ride',
+	'knowledge',
+	'heal',
+	'diplomacy',
+	'deception',
+	'fortitude',
+	'stealth',
+	'warfare',
+	'initiative',
+	'intimidation',
+	'intuition',
+	'investigation',
+	'gambling',
+	'thievery',
+	'fighting',
+	'mysticism',
+	'nobility',
+	'craft_1',
+	'perception',
+	'driving',
+	'aim',
+	'reflexes',
+	'religion',
+	'survival',
+	'will',
 ];
 
 export const sheetFormInitialState: SheetForm = {
@@ -103,161 +103,198 @@ export const sheetFormInitialState: SheetForm = {
 		actual: '',
 	},
 	skills: {
-		Acrobacia: {
+		acrobatics: {
+			name: 'Acrobacia',
 			trained: false,
 			attribute: 'DES',
 			bonus_others: '',
 			armour_penalty: true,
 		},
-		Adestramento: {
+		animal_handling: {
+			name: 'Adestramento',
 			trained: false,
 			attribute: 'CAR',
 			bonus_others: '',
 			trained_only: true,
 		},
-		Atletismo: {
+		athletics: {
+			name: 'Atletismo',
 			trained: false,
 			attribute: 'FOR',
 			bonus_others: '',
 		},
-		Atuação: {
+		performance: {
+			name: 'Atuação',
 			trained: false,
 			attribute: 'CAR',
 			bonus_others: '',
 		},
-		Cavalgar: {
+		ride: {
+			name: 'Cavalgar',
 			trained: false,
 			attribute: 'DES',
 			bonus_others: '',
 		},
-		Conhecimento: {
+		knowledge: {
+			name: 'Conhecimento',
 			trained: false,
 			attribute: 'INT',
 			bonus_others: '',
 			trained_only: true,
 		},
-		Cura: {
+		heal: {
+			name: 'Cura',
 			trained: false,
 			attribute: 'SAB',
 			bonus_others: '',
 		},
-		Diplomacia: {
+		diplomacy: {
+			name: 'Diplomacia',
 			trained: false,
 			attribute: 'CAR',
 			bonus_others: '',
 		},
-		Enganação: {
+		deception: {
+			name: 'Enganação',
 			trained: false,
 			attribute: 'CAR',
 			bonus_others: '',
 		},
-		Fortitude: {
+		fortitude: {
+			name: 'Fortitude',
 			trained: false,
 			attribute: 'CON',
 			bonus_others: '',
 		},
-		Furtividade: {
+		stealth: {
+			name: 'Furtividade',
 			trained: false,
 			attribute: 'DES',
 			bonus_others: '',
 			armour_penalty: true,
 		},
-		Guerra: {
+		warfare: {
+			name: 'Guerra',
 			trained: false,
 			attribute: 'INT',
 			bonus_others: '',
 			trained_only: true,
 		},
-		Iniciativa: {
+		initiative: {
+			name: 'Iniciativa',
 			trained: false,
 			attribute: 'DES',
 			bonus_others: '',
 		},
-		Intimidação: {
+		intimidation: {
+			name: 'Intimidação',
 			trained: false,
 			attribute: 'CAR',
 			bonus_others: '',
 		},
-		Intuição: {
+		intuition: {
+			name: 'Intuição',
 			trained: false,
 			attribute: 'SAB',
 			bonus_others: '',
 		},
-		Investigação: {
+		investigation: {
+			name: 'Investigação',
 			trained: false,
 			attribute: 'INT',
 			bonus_others: '',
 		},
-		Jogatina: {
+		gambling: {
+			name: 'Jogatina',
 			trained: false,
 			attribute: 'CAR',
 			bonus_others: '',
 			trained_only: true,
 		},
-		Ladinagem: {
+		thievery: {
+			name: 'Ladinagem',
 			trained: false,
 			attribute: 'DES',
 			bonus_others: '',
 			trained_only: true,
 			armour_penalty: true,
 		},
-		Luta: {
+		fighting: {
+			name: 'Luta',
 			trained: false,
 			attribute: 'FOR',
 			bonus_others: '',
 		},
-		Misticismo: {
+		mysticism: {
+			name: 'Misticismo',
 			trained: false,
 			attribute: 'INT',
 			bonus_others: '',
 			trained_only: true,
 		},
-		Nobreza: {
+		nobility: {
+			name: 'Nobreza',
 			trained: false,
 			attribute: 'INT',
 			bonus_others: '',
 			trained_only: true,
 		},
-		Ofício: {
-			name: '',
+		craft_1: {
+			name: 'Ofício',
+			title: '',
 			trained: false,
 			attribute: 'INT',
 			bonus_others: '',
 			trained_only: true,
 		},
-		Percepção: {
+		craft_2: {
+			name: 'Ofício',
+			title: '',
+			trained: false,
+			attribute: 'INT',
+			bonus_others: '',
+			trained_only: true,
+		},
+		perception: {
+			name: 'Percepção',
 			trained: false,
 			attribute: 'SAB',
 			bonus_others: '',
 		},
-		Pilotagem: {
+		driving: {
+			name: 'Pilotagem',
 			trained: false,
 			attribute: 'DES',
 			bonus_others: '',
 			trained_only: true,
 		},
-		Pontaria: {
+		aim: {
+			name: 'Pontaria',
 			trained: false,
 			attribute: 'DES',
 			bonus_others: '',
 		},
-		Reflexos: {
+		reflexes: {
+			name: 'Reflexos',
 			trained: false,
 			attribute: 'DES',
 			bonus_others: '',
 		},
-		Religião: {
+		religion: {
+			name: 'Religião',
 			trained: false,
 			attribute: 'SAB',
 			bonus_others: '',
 			trained_only: true,
 		},
-		Sobrevivência: {
+		survival: {
+			name: 'Sobrevivência',
 			trained: false,
 			attribute: 'SAB',
 			bonus_others: '',
 		},
-		Vontade: {
+		will: {
+			name: 'Vontade',
 			trained: false,
 			attribute: 'SAB',
 			bonus_others: '',

@@ -36,8 +36,8 @@ const Abilities = ({
 
 	const renderList = () =>
 		sheet.abilities[type].map((item, index) => (
-			<div className="flex flex-col row-gap-2" key={index}>
-				<div className="flex flex-col row-gap-1 group">
+			<div className="flex flex-col gap-y-2" key={index}>
+				<div className="flex flex-col gap-y-1 group">
 					<Label className="text-start all-small-caps group-focus-within:text-primary">
 						Nome
 					</Label>
@@ -49,7 +49,7 @@ const Abilities = ({
 						onChange={handleInput}
 					/>
 				</div>
-				<div className="flex flex-col row-gap-1 group">
+				<div className="flex flex-col gap-y-1 group">
 					<Label className="text-start all-small-caps group-focus-within:text-primary">
 						Descrição
 					</Label>

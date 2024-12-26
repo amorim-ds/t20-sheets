@@ -66,13 +66,13 @@ const Spells = ({ sheet, handleInput, setSheet }: SheetFormComponentProps) => {
 	);
 
 	const renderDetails = (listIndex: number) => (
-		<div className="grid grid-cols-3 sm:grid-cols-[1fr_1fr_1fr_1fr_1fr_2fr]">
+		<div className="grid grid-cols-[auto_auto_auto] lg:grid-cols-[auto_auto_auto_auto_auto_auto] gap-3">
 			<div className="flex flex-col gap-1 group items-center">
 				<Label className="all-small-caps group-focus-within:text-primary">
 					Escola
 				</Label>
 				<Select
-					className="bg-gray-light w-16"
+					className="bg-gray-light w-20"
 					placeholderClassName="justify-self-center w-full"
 					iconClassName="hidden"
 					name={`abilities.spell.${listIndex}.school`}
@@ -114,7 +114,7 @@ const Spells = ({ sheet, handleInput, setSheet }: SheetFormComponentProps) => {
 					Área
 				</Label>
 				<Input
-					className="bg-gray-light w-20 text-center"
+					className="bg-gray-light w-20 sm:w-40 text-center"
 					name={`abilities.spell.${listIndex}.area`}
 					value={sheet.abilities.spell[listIndex].area}
 					onChange={handleInput}
@@ -125,7 +125,7 @@ const Spells = ({ sheet, handleInput, setSheet }: SheetFormComponentProps) => {
 					Duração
 				</Label>
 				<Input
-					className="bg-gray-light w-20 text-center"
+					className="bg-gray-light w-20 sm:w-40 text-center"
 					name={`abilities.spell.${listIndex}.duration`}
 					value={sheet.abilities.spell[listIndex].duration}
 					onChange={handleInput}
@@ -136,7 +136,7 @@ const Spells = ({ sheet, handleInput, setSheet }: SheetFormComponentProps) => {
 					Resistência
 				</Label>
 				<Input
-					className="bg-gray-light w-40 text-center"
+					className="bg-gray-light text-center w-40 sm:w-60"
 					name={`abilities.spell.${listIndex}.resistance`}
 					value={sheet.abilities.spell[listIndex].resistance}
 					onChange={handleInput}
@@ -147,8 +147,8 @@ const Spells = ({ sheet, handleInput, setSheet }: SheetFormComponentProps) => {
 
 	const renderList = () =>
 		sheet.abilities.spell.map((item, index) => (
-			<div className="flex flex-col row-gap-2" key={index}>
-				<div className="flex flex-col row-gap-1 group">
+			<div className="flex flex-col gap-y-2" key={index}>
+				<div className="flex flex-col gap-y-1 group">
 					<Label className="text-start all-small-caps group-focus-within:text-primary">
 						Nome
 					</Label>
@@ -161,7 +161,7 @@ const Spells = ({ sheet, handleInput, setSheet }: SheetFormComponentProps) => {
 					/>
 				</div>
 				{renderDetails(index)}
-				<div className="flex flex-col row-gap-1 group">
+				<div className="flex flex-col gap-y-1 group">
 					<Label className="text-start all-small-caps group-focus-within:text-primary">
 						Efeito
 					</Label>

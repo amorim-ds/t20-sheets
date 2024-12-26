@@ -1,5 +1,6 @@
 'use client';
 import Card from '@/components/molecules/card';
+import Loader from '@/components/organisms/loader';
 import Abilities from '@/components/organisms/pages/sheets/abilities';
 import ArmorList from '@/components/organisms/pages/sheets/armor-list';
 import AttackList from '@/components/organisms/pages/sheets/attack-list';
@@ -23,11 +24,12 @@ import { SheetForm } from '@/utils/types';
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
-const DEBOUNCE_TIME = 5000; // 1 segundo de atraso antes de salvar
+const DEBOUNCE_TIME = 1000;
 
 export default function SheetsPage() {
 	const [sheet, setSheet] = useState<SheetForm>(sheetFormInitialState);
 	const params = useParams(); // Obtém os parâmetros da URL
+	const [isLoaderVisible, setIsLoaderVisible] = useState<boolean>(false);
 
 	const { sheetId } = params; // Acessa o parâmetro 'sheetId' da URL
 
@@ -49,10 +51,13 @@ export default function SheetsPage() {
 				'PATCH',
 				sheetId as string
 			);
+			setIsLoaderVisible(false);
 		}, DEBOUNCE_TIME);
+		
+		setIsLoaderVisible(true);
 
 		return () => clearTimeout(timeoutId);
-	}, [sheet, sheetId]);
+	}, [sheet]);
 
 	const handleInput = (
 		e:
@@ -81,7 +86,8 @@ export default function SheetsPage() {
 	};
 
 	return (
-		<form
+		<>
+			<form
 			className="w-full overflow-x-hidden px-5 py-5 md:px-20 print:px-1 space-y-3"
 			autoComplete="off"
 			noValidate
@@ -120,7 +126,7 @@ export default function SheetsPage() {
 					handleInput={handleInput}
 					setSheet={setSheet}
 					type="race"
-					title="Habilidades de Raça"
+					title="Habilidades de Raça e Origem"
 				/>
 				<Abilities
 					sheet={sheet}
@@ -134,7 +140,7 @@ export default function SheetsPage() {
 					handleInput={handleInput}
 					setSheet={setSheet}
 					type="general"
-					title="Habilidades de Origem e Poderes Gerais"
+					title="Poderes Gerais"
 				/>
 				<Spells
 					sheet={sheet}
@@ -143,5 +149,7 @@ export default function SheetsPage() {
 				/>
 			</div>
 		</form>
+		<Loader isVisible={isLoaderVisible} />
+		</>
 	);
 }

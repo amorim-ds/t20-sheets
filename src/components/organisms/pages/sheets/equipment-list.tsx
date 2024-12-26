@@ -91,7 +91,7 @@ const EquipmentList = ({
 					onMinusClick={removeEquipment}
 					onPlusClick={newEquipment}
 				/>
-				<div className="grid grid-rows-2 grid-cols-[1fr_1fr_2fr] grid-flow-col text-center gap-1">
+				<div className="grid grid-rows-2 grid-cols-[auto_auto_1fr] grid-flow-col text-center gap-3">
 					<Span className="flex gap-1 justify-center items-center">
 						<b
 							className={classNames('text-lg', {
@@ -109,17 +109,17 @@ const EquipmentList = ({
 							onChange={handleInput}
 						/>
 					</Span>
-					<Span className="text-sm">Carga Máxima</Span>
+					<Span className="text-sm leading-none self-center">Carga Máxima</Span>
 					<Span className="text-lg font-semibold">
 						{totalWeight() * 2}
 					</Span>
-					<Span className="text-sm">Levantar</Span>
+					<Span className="text-sm self-center">Levantar</Span>
 					<div className="grid grid-cols-[auto_1fr] gap-3 items-center group">
 						<Label className="text-sm group-focus-within:text-primary w-5">
 							T$
 						</Label>
 						<Input
-							className="bg-gray-light text-sm flex-grow"
+							className="bg-gray-light text-sm w-full"
 							name="tibar.regular"
 							value={sheet.tibar.regular}
 							onChange={handleInput}
@@ -130,7 +130,7 @@ const EquipmentList = ({
 							TO
 						</Label>
 						<Input
-							className="bg-gray-light text-sm flex-grow"
+							className="bg-gray-light text-sm w-full"
 							name="tibar.gold"
 							value={sheet.tibar.gold}
 							onChange={handleInput}

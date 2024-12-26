@@ -17,37 +17,39 @@ export type Execution = 'Completa' | 'Livre' | 'Padrão' | 'Reação';
 export type Range = 'Pessoal' | 'Toque' | 'Curto' | 'Médio' | 'Longo';
 
 export type SkillName =
-	| 'Acrobacia'
-	| 'Adestramento'
-	| 'Atletismo'
-	| 'Atuação'
-	| 'Cavalgar'
-	| 'Conhecimento'
-	| 'Cura'
-	| 'Diplomacia'
-	| 'Enganação'
-	| 'Fortitude'
-	| 'Furtividade'
-	| 'Guerra'
-	| 'Iniciativa'
-	| 'Intimidação'
-	| 'Intuição'
-	| 'Investigação'
-	| 'Jogatina'
-	| 'Ladinagem'
-	| 'Luta'
-	| 'Misticismo'
-	| 'Nobreza'
-	| 'Ofício'
-	| 'Percepção'
-	| 'Pilotagem'
-	| 'Pontaria'
-	| 'Reflexos'
-	| 'Religião'
-	| 'Sobrevivência'
-	| 'Vontade';
+	| 'acrobatics'
+	| 'animal_handling'
+	| 'athletics'
+	| 'performance'
+	| 'ride'
+	| 'knowledge'
+	| 'heal'
+	| 'diplomacy'
+	| 'deception'
+	| 'fortitude'
+	| 'stealth'
+	| 'warfare'
+	| 'initiative'
+	| 'intimidation'
+	| 'intuition'
+	| 'investigation'
+	| 'gambling'
+	| 'thievery'
+	| 'fighting'
+	| 'mysticism'
+	| 'nobility'
+	| 'craft_1'
+	| 'craft_2'
+	| 'perception'
+	| 'driving'
+	| 'aim'
+	| 'reflexes'
+	| 'religion'
+	| 'survival'
+	| 'will';
 
 export type GenericSkillDetails = {
+	name: string;
 	trained: boolean;
 	attribute: Attribute;
 	bonus_others: string;
@@ -56,11 +58,11 @@ export type GenericSkillDetails = {
 };
 
 export type RoleSkillDetails = GenericSkillDetails & {
-	name: string;
+	title: string;
 };
 
 export type Skills = {
-	[key in SkillName]: key extends 'Ofício'
+	[key in SkillName]: key extends 'craft_1' | 'craft_2'
 		? RoleSkillDetails
 		: GenericSkillDetails;
 };
