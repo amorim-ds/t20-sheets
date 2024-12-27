@@ -38,26 +38,20 @@ const Abilities = ({
 		sheet.abilities[type].map((item, index) => (
 			<div className="flex flex-col gap-y-2" key={index}>
 				<div className="flex flex-col gap-y-1 group">
-					<Label className="text-start all-small-caps group-focus-within:text-primary">
-						Nome
-					</Label>
 					<Input
 						className="bg-gray-light flex-grow text-lg font-bold"
 						name={`abilities.${type}.${index}.name`}
-						title={`Nome de Habilidade ${index}`}
+						title={`Nome de Habilidade ${index + 1}`}
 						value={item.name}
 						onChange={handleInput}
 					/>
 				</div>
 				<div className="flex flex-col gap-y-1 group">
-					<Label className="text-start all-small-caps group-focus-within:text-primary">
-						Descrição
-					</Label>
 					<textarea
 						className="w-full flex-grow text-sm px-2 py-1 rounded-md bg-gray-light outline-primary resize-none print:border-none print:px-0"
 						rows={5}
 						name={`abilities.${type}.${index}.description`}
-						title={`Descrição de Habilidade ${index}`}
+						title={`Descrição de Habilidade ${index + 1}`}
 						value={item.description}
 						onChange={handleInput}
 					></textarea>
@@ -68,7 +62,7 @@ const Abilities = ({
 	return (
 		<Card
 			className={classNames(
-				'sm:col-span-2 lg:col-span-4 text-center grid gap-3',
+				'sm:col-span-2 lg:col-span-4 text-center grid gap-6',
 				{
 					'print:hidden': sheet.abilities[type].length < 1,
 				}

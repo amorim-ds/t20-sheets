@@ -167,27 +167,21 @@ const Spells = ({ sheet, handleInput, setSheet }: SheetFormComponentProps) => {
 		sheet.abilities.spell.map((item, index) => (
 			<div className="flex flex-col gap-y-2" key={index}>
 				<div className="flex flex-col gap-y-1 group">
-					<Label className="text-start all-small-caps group-focus-within:text-primary">
-						Nome
-					</Label>
 					<Input
 						className="bg-gray-light flex-grow text-lg font-bold"
 						name={`abilities.spell.${index}.name`}
-						title={`Nome de Habilidade ${index}`}
+						title={`Nome de Magia ${index + 1}`}
 						value={item.name}
 						onChange={handleInput}
 					/>
 				</div>
 				{renderDetails(index)}
 				<div className="flex flex-col gap-y-1 group">
-					<Label className="text-start all-small-caps group-focus-within:text-primary">
-						Efeito
-					</Label>
 					<textarea
 						className="w-full flex-grow text-sm px-2 py-1 rounded-md bg-gray-light outline-primary resize-none print:border-none print:px-0"
 						rows={10}
 						name={`abilities.spell.${index}.description`}
-						title={`Descrição de Habilidade ${index}`}
+						title={`Efeito de Magia ${index + 1}`}
 						value={item.description}
 						onChange={handleInput}
 					></textarea>
@@ -198,7 +192,7 @@ const Spells = ({ sheet, handleInput, setSheet }: SheetFormComponentProps) => {
 	return (
 		<Card
 			className={classNames(
-				'sm:col-span-2 lg:col-span-4 text-center grid gap-3',
+				'sm:col-span-2 lg:col-span-4 text-center grid gap-6',
 				{
 					'print:hidden': sheet.abilities.spell.length < 1,
 				}
