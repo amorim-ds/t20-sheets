@@ -42,6 +42,7 @@ const Abilities = ({
 						className="bg-gray-light flex-grow text-lg font-bold"
 						name={`abilities.${type}.${index}.name`}
 						title={`Nome de Habilidade ${index + 1}`}
+						placeholder="Nome"
 						value={item.name}
 						onChange={handleInput}
 					/>
@@ -51,6 +52,7 @@ const Abilities = ({
 						className="w-full flex-grow text-sm px-2 py-1 rounded-md bg-gray-light outline-primary resize-none print:border-none print:px-0"
 						rows={5}
 						name={`abilities.${type}.${index}.description`}
+						placeholder="Descrição"
 						title={`Descrição de Habilidade ${index + 1}`}
 						value={item.description}
 						onChange={handleInput}

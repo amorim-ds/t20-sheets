@@ -171,6 +171,7 @@ const Spells = ({ sheet, handleInput, setSheet }: SheetFormComponentProps) => {
 						className="bg-gray-light flex-grow text-lg font-bold"
 						name={`abilities.spell.${index}.name`}
 						title={`Nome de Magia ${index + 1}`}
+						placeholder="Nome"
 						value={item.name}
 						onChange={handleInput}
 					/>
@@ -182,6 +183,7 @@ const Spells = ({ sheet, handleInput, setSheet }: SheetFormComponentProps) => {
 						rows={10}
 						name={`abilities.spell.${index}.description`}
 						title={`Efeito de Magia ${index + 1}`}
+						placeholder="Efeito"
 						value={item.description}
 						onChange={handleInput}
 					></textarea>
