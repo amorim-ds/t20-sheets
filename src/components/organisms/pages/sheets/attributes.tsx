@@ -9,7 +9,7 @@ const Attributes = ({ sheet, handleInput }: SheetFormComponentProps) => (
 		{Object.entries(sheet.attributes).map(([key, value], index) => (
 			<Input
 				key={index}
-				className="text-3xl text-center font-bold size-10 sm:size-14  bg-gray-light"
+				className="text-2xl text-center font-bold size-10 sm:size-12  bg-gray-light"
 				labelClassName="text-xl font-tormenta20"
 				containerClassName="items-center"
 				type="number"

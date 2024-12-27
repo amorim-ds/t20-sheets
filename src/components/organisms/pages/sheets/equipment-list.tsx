@@ -1,3 +1,4 @@
+'use client';
 import { Span } from '@/components/atoms/text/span';
 import Input from '@/components/molecules/input';
 import classNames from 'classnames';
@@ -5,6 +6,7 @@ import { SheetFormComponentProps } from '@/utils/types';
 import Card from '@/components/molecules/card';
 import Counter from '@/components/molecules/counter';
 import { Label } from '@/components/atoms/text/label';
+import { useEffect } from 'react';
 
 const EquipmentList = ({
 	sheet,
@@ -38,8 +40,12 @@ const EquipmentList = ({
 		return 10 + strengthBonus;
 	};
 
-	const renderEquipmentsTableHeaders = () => (
-		<div className="grid grid-cols-[3fr_1fr] gap-1">
+	useEffect(() => {
+		setSheet?.({ ...sheet, total_weight: String(totalWeight()) });
+	}, [sheet.attributes.FOR]);
+
+	const renderEquipmentsTableHeaders = (className?: string) => (
+		<div className={classNames('grid-cols-[3fr_1fr] gap-1', className)}>
 			{['Equipamento', 'Peso'].map((value, index) => (
 				<Span
 					className={classNames('text-xs leading-none', {
@@ -76,10 +82,10 @@ const EquipmentList = ({
 
 	return (
 		<Card className="grid sm:col-span-2">
-			<div className="grid gap-1 h-fit">
-				<div className="grid grid-cols-2 gap-y-1 gap-x-3">
-					{renderEquipmentsTableHeaders()}
-					{renderEquipmentsTableHeaders()}
+			<div className="grid gap-y-3 h-fit">
+				<div className="grid sm:grid-cols-2 gap-y-1 gap-x-3">
+					{renderEquipmentsTableHeaders('grid')}
+					{renderEquipmentsTableHeaders('hidden sm:grid')}
 					{renderEquipmentsTableContent()}
 				</div>
 				<Counter
@@ -91,52 +97,58 @@ const EquipmentList = ({
 					onMinusClick={removeEquipment}
 					onPlusClick={newEquipment}
 				/>
-				<div className="grid grid-rows-2 grid-cols-[auto_auto_1fr] grid-flow-col text-center gap-3">
-					<Span className="flex gap-1 justify-center items-center">
-						<b
-							className={classNames('text-lg', {
-								'text-secondary':
-									currentWeight() > totalWeight(),
-							})}
-						>
-							{currentWeight()}
-						</b>
-						<Span className="text-xs">de</Span>
-						<Input
-							className="text-lg text-center bg-gray-light w-8 px-0 py-0 font-bold"
-							name="total_weight"
-							defaultValue={totalWeight()}
-							onChange={handleInput}
-						/>
-					</Span>
-					<Span className="text-sm leading-none self-center">
-						Carga Máxima
-					</Span>
-					<Span className="text-lg font-semibold">
-						{totalWeight() * 2}
-					</Span>
-					<Span className="text-sm self-center">Levantar</Span>
-					<div className="grid grid-cols-[auto_1fr] gap-3 items-center group">
-						<Label className="text-sm group-focus-within:text-primary w-5">
-							T$
-						</Label>
-						<Input
-							className="bg-gray-light text-sm w-full"
-							name="tibar.regular"
-							value={sheet.tibar.regular}
-							onChange={handleInput}
-						/>
+				<div className="grid grid-cols-2 sm:grid-cols-4 text-center gap-x-3 gap-y-2">
+					<div>
+						<Span className="flex gap-1 justify-center items-center">
+							<b
+								className={classNames('text-lg', {
+									'text-secondary':
+										currentWeight() > totalWeight(),
+								})}
+							>
+								{currentWeight()}
+							</b>
+							<Span className="text-xs">de</Span>
+							<Input
+								className="text-lg text-center bg-gray-light w-8 px-0 py-0 font-bold"
+								name="total_weight"
+								value={sheet.total_weight}
+								onChange={handleInput}
+							/>
+						</Span>
+						<Span className="text-sm leading-none self-center">
+							Carga Máxima
+						</Span>
 					</div>
-					<div className="grid grid-cols-[auto_1fr] gap-3 items-center group">
-						<Label className="text-sm group-focus-within:text-primary w-5">
-							TO
-						</Label>
-						<Input
-							className="bg-gray-light text-sm w-full"
-							name="tibar.gold"
-							value={sheet.tibar.gold}
-							onChange={handleInput}
-						/>
+					<div className="flex flex-col items-center">
+						<Span className="text-lg font-semibold">
+							{Number(sheet.total_weight) * 2}
+						</Span>
+						<Span className="text-sm self-center">Levantar</Span>
+					</div>
+					<div className="grid gap-1 col-span-2">
+						<div className="grid grid-cols-[auto_1fr] gap-3 items-center group">
+							<Label className="text-sm group-focus-within:text-primary w-5">
+								T$
+							</Label>
+							<Input
+								className="bg-gray-light text-sm w-full"
+								name="tibar.regular"
+								value={sheet.tibar.regular}
+								onChange={handleInput}
+							/>
+						</div>
+						<div className="grid grid-cols-[auto_1fr] gap-3 items-center group">
+							<Label className="text-sm group-focus-within:text-primary w-5">
+								TO
+							</Label>
+							<Input
+								className="bg-gray-light text-sm w-full"
+								name="tibar.gold"
+								value={sheet.tibar.gold}
+								onChange={handleInput}
+							/>
+						</div>
 					</div>
 				</div>
 			</div>

@@ -1,9 +1,14 @@
 import { H5 } from '@/components/atoms/text/h5';
 import Card from '@/components/molecules/card';
 import { SheetFormComponentProps } from '@/utils/types';
+import classNames from 'classnames';
 
 const Notes = ({ sheet, handleInput }: SheetFormComponentProps) => (
-	<Card className="flex flex-col group sm:col-span-2">
+	<Card
+		className={classNames('flex flex-col group sm:col-span-2', {
+			'print:hidden': sheet.description.length < 1,
+		})}
+	>
 		<H5 className="font-tormenta20 text-center group-focus-within:text-primary">
 			Anotações
 		</H5>

@@ -52,13 +52,13 @@ export default function SheetsPage() {
 	useEffect(() => {
 		if (!sheetId || !sheet || !initialSheet) return;
 		if (_.isEqual(sheet, initialSheet)) return;
+
 		const timeoutId = setTimeout(async () => {
+			setIsLoaderVisible(true);
 			const data = await updateJsonToBucket(sheetId as string, sheet);
-			if (!data.response) setInitialSheet(_.cloneDeep(sheet));
+			if (data.response) setInitialSheet(_.cloneDeep(sheet));
 			setIsLoaderVisible(false);
 		}, DEBOUNCE_TIME);
-
-		setIsLoaderVisible(true);
 
 		return () => clearTimeout(timeoutId);
 	}, [sheet]);
@@ -92,12 +92,12 @@ export default function SheetsPage() {
 	return (
 		<>
 			<form
-				className="w-full overflow-x-hidden px-5 py-5 md:px-20 print:px-1 space-y-3"
+				className="w-full overflow-x-hidden px-5 py-5 sm:px-10 ld:px-20 print:px-1 space-y-3 print:space-y-1"
 				autoComplete="off"
 				noValidate
 			>
 				<CharDetails sheet={sheet} handleInput={handleInput} />
-				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-3 gap-y-3 print:gap-y-2">
+				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
 					<Attributes sheet={sheet} handleInput={handleInput} />
 					<Stats sheet={sheet} handleInput={handleInput} />
 					<Defense sheet={sheet} handleInput={handleInput} />

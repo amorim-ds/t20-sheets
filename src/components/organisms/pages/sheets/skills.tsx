@@ -113,15 +113,13 @@ const Skills = ({ sheet, setSheet, handleInput }: SheetFormComponentProps) => {
 					)}
 					{(key == 'craft_1' || key == 'craft_2') && (
 						<Span>
-							(
 							<Input
-								className="bg-gray-light w-12 sm:w-16 text-center text-xs"
+								className="bg-gray-light w-12 sm:w-16 px-0 text-center text-xs"
 								name={`skills.${key}.title`}
 								value={(skill as RoleSkillDetails).title}
 								onChange={handleInput}
 								title="Nome do Ofício"
 							/>
-							)
 						</Span>
 					)}
 				</div>
@@ -162,6 +160,16 @@ const Skills = ({ sheet, setSheet, handleInput }: SheetFormComponentProps) => {
 			</div>
 			<div className="relative grid sm:grid-rows-auto-15 lg:grid-rows-auto-10 grid-flow-row sm:grid-flow-col gap-1 print:gap-0 w-full">
 				{renderSkillsTableContent()}
+			</div>
+			<div className="flex justify-around">
+				<Span className="flex items-center gap-1 all-small-caps leading-tight">
+					<Sword className="h-2 w-auto" />
+					Apenas Treinado
+				</Span>
+				<Span className="flex items-center gap-1 all-small-caps leading-tight">
+					<Armor className="h-2 w-auto" />
+					Penalidade de Armadura
+				</Span>
 			</div>
 		</Card>
 	);

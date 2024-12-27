@@ -303,6 +303,14 @@ export const sheetFormInitialState: SheetForm = {
 	},
 	attacks: [
 		{
+			name: 'Desarmado',
+			test: 'Luta',
+			damage: '1d3+FOR',
+			critical: '20',
+			type: 'Impacto',
+			range: '-',
+		},
+		{
 			name: '',
 			test: '',
 			damage: '',
@@ -350,4 +358,5 @@ export const sheetFormInitialState: SheetForm = {
 	spell_modifier: 'INT',
 	description: '',
 	notes: '',
+	total_weight: '10',
 };

@@ -150,7 +150,7 @@ export type SheetForm = {
 	size: Size;
 	movement: string;
 	equipments: EquipmentDetails[];
-	total_weight?: string;
+	total_weight: string;
 	tibar: {
 		regular: string;
 		gold: string;

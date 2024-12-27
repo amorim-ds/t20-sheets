@@ -66,7 +66,14 @@ const Abilities = ({
 		));
 
 	return (
-		<Card className="sm:col-span-2 lg:col-span-4 text-center grid gap-3">
+		<Card
+			className={classNames(
+				'sm:col-span-2 lg:col-span-4 text-center grid gap-3',
+				{
+					'print:hidden': sheet.abilities[type].length < 1,
+				}
+			)}
+		>
 			<H5 className="font-tormenta20">{title}</H5>
 			{renderList()}
 			<Counter

@@ -100,9 +100,11 @@ const AttackList = ({
 
 	return (
 		<Card className="grid sm:col-span-2">
-			<div className="grid gap-1 h-fit">
-				{renderAttacksTableHeaders()}
-				{renderAttacksTableContent()}
+			<div className="grid gap-y-3 h-fit">
+				<div className="grid gap-1">
+					{renderAttacksTableHeaders()}
+					{renderAttacksTableContent()}
+				</div>
 				<Counter
 					minusClassName={classNames({
 						'fill-secondary': sheet.attacks.length > 1,

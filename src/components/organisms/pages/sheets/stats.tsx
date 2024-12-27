@@ -44,7 +44,7 @@ const StatCard = ({
 		<div className="flex flex-col h-full items-center gap-3">
 			<H5 className="text-center font-tormenta20 col-span-2">{title}</H5>
 			<Input
-				className="text-3xl w-20 h-auto text-center font-bold bg-gray-light border-none"
+				className="text-2xl w-20 h-auto text-center font-bold bg-gray-light border-none"
 				type="number"
 				name={nameActual}
 				title={`Pontos de ${title} Atuais`}
@@ -52,8 +52,8 @@ const StatCard = ({
 				onChange={handleInput}
 			/>
 		</div>
-		<Label className="text-center">Máximos</Label>
-		<Label className="text-center">Atuais</Label>
+		<Label className="text-center text-xs">Máximos</Label>
+		<Label className="text-center text-xs">Atuais</Label>
 	</Card>
 );
 

@@ -39,9 +39,13 @@ const Spells = ({ sheet, handleInput, setSheet }: SheetFormComponentProps) => {
 		Number(sheet.attributes[sheet.spell_modifier]);
 
 	const renderModifiers = () => (
-		<div className="flex gap-3 justify-around items-center">
+		<div
+			className={classNames('flex gap-3 justify-around items-center', {
+				hidden: sheet.abilities.spell.length < 1,
+			})}
+		>
 			<div className="flex gap-3 items-center">
-				<Label className="font-bold all-small-caps">
+				<Label className="font-bold all-small-caps leading-none">
 					Atributo-chave
 				</Label>
 				<Select
@@ -55,7 +59,7 @@ const Spells = ({ sheet, handleInput, setSheet }: SheetFormComponentProps) => {
 				/>
 			</div>
 			<div className="flex gap-3 items-center">
-				<Span className="font-bold all-small-caps">
+				<Span className="font-bold all-small-caps leading-none">
 					Teste de Resistência
 				</Span>
 				<Span className="font-bold text-lg">
@@ -145,7 +149,7 @@ const Spells = ({ sheet, handleInput, setSheet }: SheetFormComponentProps) => {
 					onChange={handleInput}
 				/>
 			</div>
-			<div className="flex flex-col gap-1 group items-center">
+			<div className="flex flex-col gap-1 group items-center col-span-3 sm:col-span-2 lg:col-span-1">
 				<Label className="all-small-caps group-focus-within:text-primary">
 					Resistência
 				</Label>
@@ -192,7 +196,14 @@ const Spells = ({ sheet, handleInput, setSheet }: SheetFormComponentProps) => {
 		));
 
 	return (
-		<Card className="sm:col-span-2 lg:col-span-4 text-center grid gap-3">
+		<Card
+			className={classNames(
+				'sm:col-span-2 lg:col-span-4 text-center grid gap-3',
+				{
+					'print:hidden': sheet.abilities.spell.length < 1,
+				}
+			)}
+		>
 			<H5 className="font-tormenta20">Magias</H5>
 			{renderModifiers()}
 			{renderList()}
