@@ -1,4 +1,5 @@
 import { H5 } from '@/components/atoms/text/h5';
+import { Span } from '@/components/atoms/text/span';
 import Card from '@/components/molecules/card';
 import { SheetFormComponentProps } from '@/utils/types';
 import classNames from 'classnames';
@@ -13,13 +14,14 @@ const Notes = ({ sheet, handleInput }: SheetFormComponentProps) => (
 			Anotações
 		</H5>
 		<textarea
-			className="w-full text-sm text-center text-inherit px-2 py-1 rounded-md bg-gray-light outline-primary resize-none print:border-none print:px-0"
+			className="print:hidden w-full text-sm text-center text-inherit px-2 py-1 rounded-md bg-gray-light outline-primary resize-none"
 			rows={10}
 			name="notes"
 			title="Anotações"
 			value={sheet.notes}
 			onChange={handleInput}
 		></textarea>
+		<Span className="hidden print:block">{sheet.notes}</Span>
 	</Card>
 );
 

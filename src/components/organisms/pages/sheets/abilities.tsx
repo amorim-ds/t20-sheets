@@ -1,5 +1,6 @@
 import { H5 } from '@/components/atoms/text/h5';
 import { Label } from '@/components/atoms/text/label';
+import { Span } from '@/components/atoms/text/span';
 import Card from '@/components/molecules/card';
 import Counter from '@/components/molecules/counter';
 import Input from '@/components/molecules/input';
@@ -39,7 +40,7 @@ const Abilities = ({
 			<div className="flex flex-col gap-y-2" key={index}>
 				<div className="flex flex-col gap-y-1 group">
 					<Input
-						className="bg-gray-light flex-grow text-lg font-bold"
+						className="bg-gray-light flex-grow text-lg font-bold px-2 print:px-0"
 						name={`abilities.${type}.${index}.name`}
 						title={`Nome de Habilidade ${index + 1}`}
 						placeholder="Nome"
@@ -49,7 +50,7 @@ const Abilities = ({
 				</div>
 				<div className="flex flex-col gap-y-1 group">
 					<textarea
-						className="w-full flex-grow text-sm px-2 py-1 rounded-md bg-gray-light outline-primary resize-none print:border-none print:px-0"
+						className="print:hidden w-full flex-grow text-sm px-2 py-1 rounded-md bg-gray-light outline-primary resize-none"
 						rows={5}
 						name={`abilities.${type}.${index}.description`}
 						placeholder="Descrição"
@@ -57,6 +58,9 @@ const Abilities = ({
 						value={item.description}
 						onChange={handleInput}
 					></textarea>
+					<Span className="text-start hidden print:block">
+						{item.description}
+					</Span>
 				</div>
 			</div>
 		));

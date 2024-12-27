@@ -74,7 +74,7 @@ export default function SheetsPage() {
 				noValidate
 			>
 				<Button
-					className="h-fit w-20 justify-self-end flex place-content-center print:hidden"
+					className="h-fit w-20 justify-self-end text-lg flex place-content-center print:hidden"
 					type="submit"
 				>
 					Salvar

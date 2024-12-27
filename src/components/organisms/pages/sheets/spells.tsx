@@ -168,7 +168,7 @@ const Spells = ({ sheet, handleInput, setSheet }: SheetFormComponentProps) => {
 			<div className="flex flex-col gap-y-2" key={index}>
 				<div className="flex flex-col gap-y-1 group">
 					<Input
-						className="bg-gray-light flex-grow text-lg font-bold"
+						className="bg-gray-light flex-grow text-lg font-bold px-2 print:px-0"
 						name={`abilities.spell.${index}.name`}
 						title={`Nome de Magia ${index + 1}`}
 						placeholder="Nome"
@@ -179,7 +179,7 @@ const Spells = ({ sheet, handleInput, setSheet }: SheetFormComponentProps) => {
 				{renderDetails(index)}
 				<div className="flex flex-col gap-y-1 group">
 					<textarea
-						className="w-full flex-grow text-sm px-2 py-1 rounded-md bg-gray-light outline-primary resize-none print:border-none print:px-0"
+						className="print:hidden w-full flex-grow text-sm px-2 py-1 rounded-md bg-gray-light outline-primary resize-none"
 						rows={10}
 						name={`abilities.spell.${index}.description`}
 						title={`Efeito de Magia ${index + 1}`}
@@ -187,6 +187,9 @@ const Spells = ({ sheet, handleInput, setSheet }: SheetFormComponentProps) => {
 						value={item.description}
 						onChange={handleInput}
 					></textarea>
+					<Span className="hidden print:block text-start">
+						{item.description}
+					</Span>
 				</div>
 			</div>
 		));
