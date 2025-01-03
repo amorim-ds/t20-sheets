@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import { SheetFormComponentProps } from '@/utils/types';
 import Card from '@/components/molecules/card';
 import Counter from '@/components/molecules/counter';
+import { H5 } from '@/components/atoms/text/h5';
 
 const AttackList = ({
 	sheet,
@@ -101,6 +102,9 @@ const AttackList = ({
 	return (
 		<Card className="grid sm:col-span-2">
 			<div className="grid gap-y-3 h-fit">
+				<H5 className="font-tormenta20 text-center">
+					Lista de Ataques
+				</H5>
 				<div className="grid gap-1">
 					{renderAttacksTableHeaders()}
 					{renderAttacksTableContent()}

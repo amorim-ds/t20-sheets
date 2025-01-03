@@ -7,6 +7,7 @@ import Card from '@/components/molecules/card';
 import Counter from '@/components/molecules/counter';
 import { Label } from '@/components/atoms/text/label';
 import { useEffect } from 'react';
+import { H5 } from '@/components/atoms/text/h5';
 
 const EquipmentList = ({
 	sheet,
@@ -83,6 +84,9 @@ const EquipmentList = ({
 	return (
 		<Card className="grid sm:col-span-2">
 			<div className="grid gap-y-3 h-fit">
+				<H5 className="font-tormenta20 text-center">
+					Lista de Equipamentos
+				</H5>
 				<div className="grid sm:grid-cols-2 gap-y-1 gap-x-3">
 					{renderEquipmentsTableHeaders('grid')}
 					{renderEquipmentsTableHeaders('hidden sm:grid')}

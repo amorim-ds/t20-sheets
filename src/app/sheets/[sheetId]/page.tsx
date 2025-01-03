@@ -100,7 +100,11 @@ export default function SheetsPage() {
 				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
 					<Attributes sheet={sheet} handleInput={handleInput} />
 					<Stats sheet={sheet} handleInput={handleInput} />
-					<Defense sheet={sheet} handleInput={handleInput} />
+					<Defense
+						sheet={sheet}
+						setSheet={setSheet}
+						handleInput={handleInput}
+					/>
 					<ArmorList sheet={sheet} handleInput={handleInput} />
 					<Proficiency sheet={sheet} handleInput={handleInput} />
 					<Card className="grid gap-1">

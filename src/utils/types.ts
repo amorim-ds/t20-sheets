@@ -2,7 +2,7 @@ import { EditableChangeEvent } from '@/components/molecules/select';
 
 export type Attribute = 'DES' | 'FOR' | 'CON' | 'INT' | 'SAB' | 'CAR';
 
-export type SpellSchools =
+export type SpellSchool =
 	| 'Abjuração'
 	| 'Adivinhação'
 	| 'Convocação'
@@ -20,6 +20,15 @@ export type Execution =
 	| 'Reação';
 
 export type Range = 'Pessoal' | 'Toque' | 'Curto' | 'Médio' | 'Longo';
+
+export type SpellCircle =
+	| '1º Círculo'
+	| '2º Círculo'
+	| '3º Círculo'
+	| '4º Círculo'
+	| '5º Círculo';
+
+export type SpellType = 'Arcana' | 'Divina' | 'Universal';
 
 export type SkillName =
 	| 'acrobatics'
@@ -100,13 +109,16 @@ export type AbilitiesDetails = {
 export type SpellDetails = {
 	name: string;
 	description: string;
-	school: SpellSchools;
+	school: SpellSchool;
 	range: Range;
 	execution: Execution;
 	area: string;
 	duration: string;
 	target: string;
 	resistance: string;
+	cost: string;
+	type: SpellType;
+	circle: SpellCircle;
 };
 
 export type Size =
@@ -144,6 +156,7 @@ export type SheetForm = {
 		damage_reduction: string;
 		armor: ArmorDetails;
 		shield: ArmorDetails;
+		should_sum_modifier: boolean;
 	};
 	experience_points: string;
 	proficiencies: string;
@@ -163,6 +176,7 @@ export type SheetForm = {
 		spell: SpellDetails[];
 	};
 	spell_modifier: Attribute;
+	spell_resistance: string;
 	description: string;
 	notes: string;
 };

@@ -8,20 +8,44 @@ import Select from '@/components/molecules/select';
 import { attributes } from '@/utils/constants';
 import { SheetFormComponentProps } from '@/utils/types';
 
-const Defense = ({ sheet, handleInput }: SheetFormComponentProps) => {
+const Defense = ({ sheet, setSheet, handleInput }: SheetFormComponentProps) => {
+	const calcAttributeBonus = () =>
+		!sheet.defense.should_sum_modifier
+			? 0
+			: Number(sheet.attributes[sheet.defense.attribute]);
+
 	const calcTotal = () =>
 		10 +
-		Number(sheet.attributes[sheet.defense.attribute]) +
+		calcAttributeBonus() +
 		Number(sheet.defense.armor.value) +
 		Number(sheet.defense.shield.value) +
 		Number(sheet.defense.bonus_others);
 
+	const handleCheckbox = (e: React.ChangeEvent<HTMLInputElement>) =>
+		setSheet?.((prev) => ({
+			...prev,
+			defense: {
+				...prev.defense,
+				should_sum_modifier: e.target.checked,
+			},
+		}));
+
 	const renderLabels = () =>
 		['Mod. de', 'Bônus de Armadura', 'Bônus de Escudo', 'Outros'].map(
-			(value, index) => (
-				<Span className="text-xs text-center leading-none" key={index}>
-					{value}
-					{index == 0 && (
+			(value, index) =>
+				index === 0 ? (
+					<Span
+						className="text-xs text-center leading-none relative"
+						key={index}
+					>
+						<input
+							className="size-2"
+							name="defense.should_sum_modifier"
+							type="checkbox"
+							checked={sheet.defense.should_sum_modifier}
+							onChange={handleCheckbox}
+						/>
+						{value}
 						<Select
 							className="pl-2 pr-2 py-0 text-xs leading-none"
 							containerClassName="justify-self-center bg-gray-light border-none"
@@ -31,9 +55,15 @@ const Defense = ({ sheet, handleInput }: SheetFormComponentProps) => {
 							onChange={handleInput}
 							options={attributes}
 						/>
-					)}
-				</Span>
-			)
+					</Span>
+				) : (
+					<Span
+						className="text-xs text-center leading-none"
+						key={index}
+					>
+						{value}
+					</Span>
+				)
 		);
 
 	return (
@@ -56,7 +86,7 @@ const Defense = ({ sheet, handleInput }: SheetFormComponentProps) => {
 					<Span className="relative text-xs">
 						+
 						<b className="font-bold text-center text-lg absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-							{Number(sheet.attributes[sheet.defense.attribute])}
+							{calcAttributeBonus()}
 						</b>
 					</Span>
 					<Span className="relative text-xs">

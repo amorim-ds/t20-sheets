@@ -4,12 +4,25 @@ import { Span } from '@/components/atoms/text/span';
 import Card from '@/components/molecules/card';
 import Counter from '@/components/molecules/counter';
 import Input from '@/components/molecules/input';
-import Select from '@/components/molecules/select';
-import { executions, ranges, spellSchools } from '@/utils/constants';
-import { SheetFormComponentProps } from '@/utils/types';
+import Select, { EditableChangeEvent } from '@/components/molecules/select';
+import {
+	executions,
+	ranges,
+	spellCircles,
+	spellSchools,
+	spellTypes,
+} from '@/utils/constants';
+import { SheetFormComponentProps, SpellCircle } from '@/utils/types';
 import classNames from 'classnames';
+import { useEffect } from 'react';
 
 const Spells = ({ sheet, handleInput, setSheet }: SheetFormComponentProps) => {
+	useEffect(() => {
+		handleInput({
+			target: { name: 'spell_resistance', value: calcSpellResistance() },
+		});
+	}, [sheet.spell_modifier, sheet.attributes[sheet.spell_modifier]]);
+
 	const newAbility = () => {
 		const newState = { ...sheet };
 		newState.abilities.spell.push({
@@ -22,6 +35,9 @@ const Spells = ({ sheet, handleInput, setSheet }: SheetFormComponentProps) => {
 			resistance: '',
 			school: 'Abjuração',
 			target: '',
+			type: 'Arcana',
+			circle: '1º Círculo',
+			cost: '1 PM',
 		});
 		setSheet?.(newState);
 	};
@@ -37,6 +53,24 @@ const Spells = ({ sheet, handleInput, setSheet }: SheetFormComponentProps) => {
 		10 +
 		Math.floor(Number(sheet.level) / 2) +
 		Number(sheet.attributes[sheet.spell_modifier]);
+
+	const handleCircleSelect = (e: EditableChangeEvent, index: number) => {
+		const circle = e.target.value as SpellCircle;
+		const cost =
+			circle === '2º Círculo'
+				? '3 PM'
+				: circle === '3º Círculo'
+					? '6 PM'
+					: circle === '4º Círculo'
+						? '10 PM'
+						: circle === '5º Círculo'
+							? '15 PM'
+							: '1 PM';
+		handleInput({
+			target: { name: `abilities.spell.${index}.cost`, value: cost },
+		});
+		handleInput(e);
+	};
 
 	const renderModifiers = () => (
 		<div
@@ -62,15 +96,60 @@ const Spells = ({ sheet, handleInput, setSheet }: SheetFormComponentProps) => {
 				<Span className="font-bold all-small-caps leading-none">
 					Teste de Resistência
 				</Span>
-				<Span className="font-bold text-lg">
-					{calcSpellResistance()}
-				</Span>
+				<Input
+					className="bg-gray-light text-center w-14"
+					name="spell_resistance"
+					type="number"
+					value={sheet.spell_resistance || calcSpellResistance()}
+					onChange={handleInput}
+				/>
 			</div>
 		</div>
 	);
 
 	const renderDetails = (listIndex: number) => (
-		<div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-7 gap-3">
+		<div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 gap-3">
+			<div className="flex flex-col gap-1 group items-center">
+				<Label className="all-small-caps group-focus-within:text-primary">
+					Círculo
+				</Label>
+				<Select
+					className="bg-gray-light w-full"
+					containerClassName="w-full"
+					placeholderClassName="justify-self-center w-full"
+					iconClassName="hidden"
+					name={`abilities.spell.${listIndex}.circle`}
+					options={spellCircles}
+					value={sheet.abilities.spell[listIndex].circle || ''}
+					onChange={(e) => handleCircleSelect(e, listIndex)}
+				/>
+			</div>
+			<div className="flex flex-col gap-1 group items-center">
+				<Label className="all-small-caps group-focus-within:text-primary">
+					Custo
+				</Label>
+				<Input
+					className="bg-gray-light w-full text-center"
+					name={`abilities.spell.${listIndex}.cost`}
+					value={sheet.abilities.spell[listIndex].cost || ''}
+					onChange={handleInput}
+				/>
+			</div>
+			<div className="flex flex-col gap-1 group items-center">
+				<Label className="all-small-caps group-focus-within:text-primary">
+					Tipo
+				</Label>
+				<Select
+					className="bg-gray-light w-full"
+					containerClassName="w-full"
+					placeholderClassName="justify-self-center w-full"
+					iconClassName="hidden"
+					name={`abilities.spell.${listIndex}.type`}
+					options={spellTypes}
+					value={sheet.abilities.spell[listIndex].type || ''}
+					onChange={handleInput}
+				/>
+			</div>
 			<div className="flex flex-col gap-1 group items-center">
 				<Label className="all-small-caps group-focus-within:text-primary">
 					Escola
@@ -138,7 +217,7 @@ const Spells = ({ sheet, handleInput, setSheet }: SheetFormComponentProps) => {
 					onChange={handleInput}
 				/>
 			</div>
-			<div className="flex flex-col gap-1 group items-center">
+			<div className="flex flex-col gap-1 group items-center col-span-1 sm:col-span-2 lg:col-span-1">
 				<Label className="all-small-caps group-focus-within:text-primary">
 					Área
 				</Label>

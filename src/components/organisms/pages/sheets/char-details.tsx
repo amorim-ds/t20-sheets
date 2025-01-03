@@ -33,16 +33,16 @@ const CharacterDetails = ({ sheet, handleInput }: SheetFormComponentProps) => (
 		/>
 		<Input
 			className="text-sm"
-			name="origin"
-			label="Origem"
-			value={sheet.origin}
+			name="class"
+			label="Classe"
+			value={sheet.class}
 			onChange={handleInput}
 		/>
 		<Input
 			className="text-sm"
-			name="class"
-			label="Classe"
-			value={sheet.class}
+			name="origin"
+			label="Origem"
+			value={sheet.origin}
 			onChange={handleInput}
 		/>
 		<Input

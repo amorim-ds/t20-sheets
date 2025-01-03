@@ -5,7 +5,9 @@ import {
 	SheetForm,
 	Size,
 	SkillName,
-	SpellSchools,
+	SpellCircle,
+	SpellSchool,
+	SpellType,
 } from './types';
 
 export const attributes: Attribute[] = [
@@ -36,7 +38,7 @@ export const executions: Execution[] = [
 
 export const ranges: Range[] = ['Pessoal', 'Toque', 'Curto', 'Médio', 'Longo'];
 
-export const spellSchools: SpellSchools[] = [
+export const spellSchools: SpellSchool[] = [
 	'Abjuração',
 	'Adivinhação',
 	'Convocação',
@@ -46,6 +48,16 @@ export const spellSchools: SpellSchools[] = [
 	'Necromancia',
 	'Transmutação',
 ];
+
+export const spellCircles: SpellCircle[] = [
+	'1º Círculo',
+	'2º Círculo',
+	'3º Círculo',
+	'4º Círculo',
+	'5º Círculo',
+];
+
+export const spellTypes: SpellType[] = ['Arcana', 'Divina', 'Universal'];
 
 export const skillNames: SkillName[] = [
 	'acrobatics',
@@ -333,6 +345,7 @@ export const sheetFormInitialState: SheetForm = {
 			value: '',
 			penalty: '',
 		},
+		should_sum_modifier: true,
 	},
 	experience_points: '',
 	proficiencies: '',
@@ -356,6 +369,7 @@ export const sheetFormInitialState: SheetForm = {
 		spell: [],
 	},
 	spell_modifier: 'INT',
+	spell_resistance: '',
 	description: '',
 	notes: '',
 	total_weight: '10',
