@@ -68,7 +68,7 @@ export default function SheetsPage() {
 	return (
 		<>
 			<form
-				className="w-full overflow-x-hidden px-5 py-5 md:px-20 print:px-1 space-y-3 print:space-y-1"
+				className="w-full overflow-x-hidden px-5 py-5 sm:px-10 lg:px-20 print:px-1 space-y-3 print:space-y-1"
 				onSubmit={handleSubmit}
 				autoComplete="off"
 				noValidate

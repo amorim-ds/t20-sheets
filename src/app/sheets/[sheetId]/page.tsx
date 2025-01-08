@@ -24,6 +24,8 @@ import updateJsonToBucket from '@/utils/update-json-file';
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import _ from 'lodash';
+import Button from '@/components/atoms/button';
+import Printer from '@/components/atoms/icons/printer';
 
 const DEBOUNCE_TIME = 3000;
 
@@ -96,6 +98,14 @@ export default function SheetsPage() {
 				autoComplete="off"
 				noValidate
 			>
+			<Button
+				className="h-fit w-fit justify-self-end text-lg flex place-content-center print:hidden"
+				type='button'
+				onClick={() => print()}
+			>
+				<Printer className='h-4 w-auto' />
+				Imprimir
+			</Button>
 				<CharDetails sheet={sheet} handleInput={handleInput} />
 				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
 					<Attributes sheet={sheet} handleInput={handleInput} />
