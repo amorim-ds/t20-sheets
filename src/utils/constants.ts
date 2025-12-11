@@ -268,6 +268,14 @@ export const sheetFormInitialState: SheetForm = {
 			bonus_others: '',
 			trained_only: true,
 		},
+		craft_3: {
+			name: 'Ofício',
+			title: '',
+			trained: false,
+			attribute: 'INT',
+			bonus_others: '',
+			trained_only: true,
+		},
 		perception: {
 			name: 'Percepção',
 			trained: false,

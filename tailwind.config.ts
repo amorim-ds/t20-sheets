@@ -27,7 +27,9 @@ export default {
 			gridTemplateRows: {
 				'auto-3': 'repeat(3, minmax(0, auto))',
 				'auto-10': 'repeat(10, minmax(0, auto))',
+				'auto-11': 'repeat(11, minmax(0, auto))',
 				'auto-15': 'repeat(15, minmax(0, auto))',
+				'auto-16': 'repeat(16, minmax(0, auto))',
 			},
 		},
 	},

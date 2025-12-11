@@ -72,12 +72,12 @@ const Skills = ({ sheet, setSheet, handleInput }: SheetFormComponentProps) => {
 				className="grid grid-cols-[3fr_1fr_2fr_2fr] w-full gap-y-1"
 				key={`content-${index}`}
 			>
-				{(index == 0 || index == 10 || index == 15 || index == 20) &&
+				{(index == 0 || index == 11 || index == 16 || index == 22) &&
 					renderSkillsTableHeader(
 						classNames({
 							grid: index == 0,
-							'hidden sm:grid lg:hidden': index == 15,
-							'hidden lg:grid': index == 10 || index == 20,
+							'hidden sm:grid lg:hidden': index == 16,
+							'hidden lg:grid': index == 11 || index == 22,
 						})
 					)}
 				<div className="flex flex-row gap-1 items-center">
@@ -111,7 +111,7 @@ const Skills = ({ sheet, setSheet, handleInput }: SheetFormComponentProps) => {
 							/>
 						</div>
 					)}
-					{(key == 'craft_1' || key == 'craft_2') && (
+					{(key == 'craft_1' || key == 'craft_2' || key == 'craft_3') && (
 						<Span>
 							<Input
 								className="bg-gray-light w-12 sm:w-16 px-0 text-center text-xs"
@@ -158,7 +158,7 @@ const Skills = ({ sheet, setSheet, handleInput }: SheetFormComponentProps) => {
 					Bônus de Treinamento: <b>{calcTrainedBonus()}</b>
 				</Span>
 			</div>
-			<div className="relative grid sm:grid-rows-auto-15 lg:grid-rows-auto-10 grid-flow-row sm:grid-flow-col gap-1 print:gap-0 w-full">
+			<div className="relative grid sm:grid-rows-auto-16 lg:grid-rows-auto-11 grid-flow-row sm:grid-flow-col gap-1 print:gap-0 w-full">
 				{renderSkillsTableContent()}
 			</div>
 			<div className="flex justify-around">

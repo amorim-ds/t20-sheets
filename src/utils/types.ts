@@ -54,6 +54,7 @@ export type SkillName =
 	| 'nobility'
 	| 'craft_1'
 	| 'craft_2'
+	| 'craft_3'
 	| 'perception'
 	| 'driving'
 	| 'aim'
@@ -76,7 +77,7 @@ export type RoleSkillDetails = GenericSkillDetails & {
 };
 
 export type Skills = {
-	[key in SkillName]: key extends 'craft_1' | 'craft_2'
+	[key in SkillName]: key extends 'craft_1' | 'craft_2' | 'craft_3'
 		? RoleSkillDetails
 		: GenericSkillDetails;
 };
