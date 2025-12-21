@@ -2,6 +2,8 @@ import { Label } from '@/components/atoms/text/label';
 import Select from '@/components/molecules/select';
 import { Span } from '@/components/atoms/text/span';
 import { SheetFormComponentProps } from '@/utils/types';
+import Tooltip from '@/components/molecules/tooltip';
+import Info from '@/components/atoms/icons/info';
 
 export const getModifiers = (size: string) => {
 	let stealthModifier, maneuverModifier;
@@ -35,14 +37,9 @@ export const getModifiers = (size: string) => {
 };
 
 const Size = ({ sheet, handleInput }: SheetFormComponentProps) => {
-	const renderModifiers = () => {
+	const modifiers = () => {
 		const [stealthModifier, maneuverModifier] = getModifiers(sheet.size);
-		return (
-			<>
-				<b className="text-sm">{stealthModifier}</b> /{' '}
-				<b className="text-sm">{maneuverModifier}</b>
-			</>
-		);
+		return `Bônus de Furtividade: ${stealthModifier}\nBônus de Manobras: ${maneuverModifier}`;
 	};
 	return (
 		<div className="grid grid-cols-[auto_2fr_1fr] items-center gap-3 group">
@@ -66,12 +63,9 @@ const Size = ({ sheet, handleInput }: SheetFormComponentProps) => {
 				]}
 				onChange={handleInput}
 			/>
-			<Span
-				className="text-end text-xs"
-				title="Bônus de Furtividade / Bônus de Manobras"
-			>
-				{renderModifiers()}
-			</Span>
+			<Tooltip text={modifiers()} position="left">
+				<Info className="w-4 h-auto cursor-pointer" />
+			</Tooltip>
 		</div>
 	);
 };

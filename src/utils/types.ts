@@ -52,9 +52,6 @@ export type SkillName =
 	| 'fighting'
 	| 'mysticism'
 	| 'nobility'
-	| 'craft_1'
-	| 'craft_2'
-	| 'craft_3'
 	| 'perception'
 	| 'driving'
 	| 'aim'
@@ -63,24 +60,19 @@ export type SkillName =
 	| 'survival'
 	| 'will';
 
-export type GenericSkillDetails = {
+export type RoleSkillName = `craft_${number}`;
+
+export type Skill = {
 	name: string;
 	trained: boolean;
 	attribute: Attribute;
 	bonus_others: string;
 	armour_penalty?: boolean;
 	trained_only?: boolean;
+	title?: string;
 };
 
-export type RoleSkillDetails = GenericSkillDetails & {
-	title: string;
-};
-
-export type Skills = {
-	[key in SkillName]: key extends 'craft_1' | 'craft_2' | 'craft_3'
-		? RoleSkillDetails
-		: GenericSkillDetails;
-};
+export type Skills = Skill[];
 
 export type AttackDetails = {
 	name: string;

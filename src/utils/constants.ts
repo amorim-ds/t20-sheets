@@ -81,7 +81,6 @@ export const skillNames: SkillName[] = [
 	'fighting',
 	'mysticism',
 	'nobility',
-	'craft_1',
 	'perception',
 	'driving',
 	'aim',
@@ -115,116 +114,116 @@ export const sheetFormInitialState: SheetForm = {
 		total: '',
 		actual: '',
 	},
-	skills: {
-		acrobatics: {
+	skills: [
+		{
 			name: 'Acrobacia',
 			trained: false,
 			attribute: 'DES',
 			bonus_others: '',
 			armour_penalty: true,
 		},
-		animal_handling: {
+		{
 			name: 'Adestramento',
 			trained: false,
 			attribute: 'CAR',
 			bonus_others: '',
 			trained_only: true,
 		},
-		athletics: {
+		{
 			name: 'Atletismo',
 			trained: false,
 			attribute: 'FOR',
 			bonus_others: '',
 		},
-		performance: {
+		{
 			name: 'Atuação',
 			trained: false,
 			attribute: 'CAR',
 			bonus_others: '',
 		},
-		ride: {
+		{
 			name: 'Cavalgar',
 			trained: false,
 			attribute: 'DES',
 			bonus_others: '',
 		},
-		knowledge: {
+		{
 			name: 'Conhecimento',
 			trained: false,
 			attribute: 'INT',
 			bonus_others: '',
 			trained_only: true,
 		},
-		heal: {
+		{
 			name: 'Cura',
 			trained: false,
 			attribute: 'SAB',
 			bonus_others: '',
 		},
-		diplomacy: {
+		{
 			name: 'Diplomacia',
 			trained: false,
 			attribute: 'CAR',
 			bonus_others: '',
 		},
-		deception: {
+		{
 			name: 'Enganação',
 			trained: false,
 			attribute: 'CAR',
 			bonus_others: '',
 		},
-		fortitude: {
+		{
 			name: 'Fortitude',
 			trained: false,
 			attribute: 'CON',
 			bonus_others: '',
 		},
-		stealth: {
+		{
 			name: 'Furtividade',
 			trained: false,
 			attribute: 'DES',
 			bonus_others: '',
 			armour_penalty: true,
 		},
-		warfare: {
+		{
 			name: 'Guerra',
 			trained: false,
 			attribute: 'INT',
 			bonus_others: '',
 			trained_only: true,
 		},
-		initiative: {
+		{
 			name: 'Iniciativa',
 			trained: false,
 			attribute: 'DES',
 			bonus_others: '',
 		},
-		intimidation: {
+		{
 			name: 'Intimidação',
 			trained: false,
 			attribute: 'CAR',
 			bonus_others: '',
 		},
-		intuition: {
+		{
 			name: 'Intuição',
 			trained: false,
 			attribute: 'SAB',
 			bonus_others: '',
 		},
-		investigation: {
+		{
 			name: 'Investigação',
 			trained: false,
 			attribute: 'INT',
 			bonus_others: '',
 		},
-		gambling: {
+		{
 			name: 'Jogatina',
 			trained: false,
 			attribute: 'CAR',
 			bonus_others: '',
 			trained_only: true,
 		},
-		thievery: {
+		{
 			name: 'Ladinagem',
 			trained: false,
 			attribute: 'DES',
@@ -232,95 +231,79 @@ export const sheetFormInitialState: SheetForm = {
 			trained_only: true,
 			armour_penalty: true,
 		},
-		fighting: {
+		{
 			name: 'Luta',
 			trained: false,
 			attribute: 'FOR',
 			bonus_others: '',
 		},
-		mysticism: {
+		{
 			name: 'Misticismo',
 			trained: false,
 			attribute: 'INT',
 			bonus_others: '',
 			trained_only: true,
 		},
-		nobility: {
+		{
 			name: 'Nobreza',
 			trained: false,
 			attribute: 'INT',
 			bonus_others: '',
 			trained_only: true,
 		},
-		craft_1: {
-			name: 'Ofício',
-			title: '',
-			trained: false,
-			attribute: 'INT',
-			bonus_others: '',
-			trained_only: true,
-		},
-		craft_2: {
-			name: 'Ofício',
-			title: '',
-			trained: false,
-			attribute: 'INT',
-			bonus_others: '',
-			trained_only: true,
-		},
-		craft_3: {
-			name: 'Ofício',
-			title: '',
-			trained: false,
-			attribute: 'INT',
-			bonus_others: '',
-			trained_only: true,
-		},
-		perception: {
+		{
 			name: 'Percepção',
 			trained: false,
 			attribute: 'SAB',
 			bonus_others: '',
 		},
-		driving: {
+		{
 			name: 'Pilotagem',
 			trained: false,
 			attribute: 'DES',
 			bonus_others: '',
 			trained_only: true,
 		},
-		aim: {
+		{
 			name: 'Pontaria',
 			trained: false,
 			attribute: 'DES',
 			bonus_others: '',
 		},
-		reflexes: {
+		{
 			name: 'Reflexos',
 			trained: false,
 			attribute: 'DES',
 			bonus_others: '',
 		},
-		religion: {
+		{
 			name: 'Religião',
 			trained: false,
 			attribute: 'SAB',
 			bonus_others: '',
 			trained_only: true,
 		},
-		survival: {
+		{
 			name: 'Sobrevivência',
 			trained: false,
 			attribute: 'SAB',
 			bonus_others: '',
 		},
-		will: {
+		{
 			name: 'Vontade',
 			trained: false,
 			attribute: 'SAB',
 			bonus_others: '',
 		},
-	},
+		{
+			name: 'Ofício',
+			title: '',
+			trained: false,
+			attribute: 'INT',
+			bonus_others: '',
+			trained_only: true,
+		},
+	],
 	attacks: [
 		{
 			name: 'Desarmado',
