@@ -123,6 +123,7 @@ export type Size =
 	| 'Colossal';
 
 export type SheetForm = {
+	mode: 'create' | 'edit';
 	character: string;
 	player: string;
 	race: string;

@@ -31,7 +31,7 @@ const DEBOUNCE_TIME = 3000;
 
 export default function SheetsPage() {
 	const [initialSheet, setInitialSheet] = useState<SheetForm>();
-	const [sheet, setSheet] = useState<SheetForm>(sheetFormInitialState);
+	const [sheet, setSheet] = useState<SheetForm>({...sheetFormInitialState, mode: 'edit'});
 	const params = useParams(); // Obtém os parâmetros da URL
 	const [isLoaderVisible, setIsLoaderVisible] = useState<boolean>(false);
 

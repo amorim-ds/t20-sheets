@@ -42,7 +42,8 @@ const EquipmentList = ({
 	};
 
 	useEffect(() => {
-		setSheet?.({ ...sheet, total_weight: String(totalWeight()) });
+		if (sheet.mode === 'create')
+			setSheet?.({ ...sheet, total_weight: String(totalWeight()) });
 	}, [sheet.attributes.FOR]);
 
 	const renderEquipmentsTableHeaders = (className?: string) => (

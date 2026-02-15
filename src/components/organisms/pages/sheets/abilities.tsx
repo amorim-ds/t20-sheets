@@ -4,6 +4,7 @@ import { Span } from '@/components/atoms/text/span';
 import Card from '@/components/molecules/card';
 import Counter from '@/components/molecules/counter';
 import Input from '@/components/molecules/input';
+import TextArea from '@/components/molecules/textarea';
 import { SheetFormComponentProps } from '@/utils/types';
 import classNames from 'classnames';
 
@@ -49,7 +50,7 @@ const Abilities = ({
 					/>
 				</div>
 				<div className="flex flex-col gap-y-1 group">
-					<textarea
+					<TextArea
 						className="print:hidden w-full flex-grow text-sm px-2 py-1 rounded-md bg-gray-light outline-primary resize-none"
 						rows={5}
 						name={`abilities.${type}.${index}.description`}
@@ -57,7 +58,7 @@ const Abilities = ({
 						title={`Descrição de Habilidade ${index + 1}`}
 						value={item.description}
 						onChange={handleInput}
-					></textarea>
+					></TextArea>
 					<Span className="text-start hidden print:block">
 						{item.description}
 					</Span>

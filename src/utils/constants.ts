@@ -91,6 +91,7 @@ export const skillNames: SkillName[] = [
 ];
 
 export const sheetFormInitialState: SheetForm = {
+	mode: 'create',
 	character: '',
 	player: '',
 	race: '',

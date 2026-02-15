@@ -5,6 +5,7 @@ import Card from '@/components/molecules/card';
 import Counter from '@/components/molecules/counter';
 import Input from '@/components/molecules/input';
 import Select, { EditableChangeEvent } from '@/components/molecules/select';
+import TextArea from '@/components/molecules/textarea';
 import {
 	executions,
 	ranges,
@@ -257,7 +258,7 @@ const Spells = ({ sheet, handleInput, setSheet }: SheetFormComponentProps) => {
 				</div>
 				{renderDetails(index)}
 				<div className="flex flex-col gap-y-1 group">
-					<textarea
+					<TextArea
 						className="print:hidden w-full flex-grow text-sm px-2 py-1 rounded-md bg-gray-light outline-primary resize-none"
 						rows={10}
 						name={`abilities.spell.${index}.description`}
@@ -265,7 +266,7 @@ const Spells = ({ sheet, handleInput, setSheet }: SheetFormComponentProps) => {
 						placeholder="Efeito"
 						value={item.description}
 						onChange={handleInput}
-					></textarea>
+					></TextArea>
 					<Span className="hidden print:block text-start">
 						{item.description}
 					</Span>
